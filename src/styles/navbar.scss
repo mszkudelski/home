@@ -1,0 +1,39 @@
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-bottom: solid 2px var(--dark);;
+  &__content {
+    max-width: 1024px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-size: 2em;
+    color: var(--dark);
+    font-weight: 700;
+  }
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-item {
+      list-style: none;
+      margin-left: 50px;
+      a {
+        text-decoration: none;
+        color: var(--dark);
+        font-size: 1.1em;
+        &:hover {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+
