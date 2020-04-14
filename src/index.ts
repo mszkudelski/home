@@ -30,7 +30,7 @@ function getTechnologyTemplate(technologies) {
         <div class="tech__img-tooltip">${technology.name}</div>
         <div class="experience">
             ${getExperienceDots(technology.experience)}
-            <div class="experience__tooltip">Poziom doświadczenia i umiejętności w skali 1-5</div>
+            <div class="experience__tooltip">Poziom doświadczenia i umiejętności: <span class="experience__value">${technology.experience}</span></div>
         </div>
         <div class="tech__description">
             ${technology.description}
