@@ -1,13 +1,13 @@
 :root {
-  --primary: #A5C3FF;
-  --dark: #627DB3;
-  --accent: #DAFF8C;
-  --dark-accent: #9BB36B;
+  --primary: #a5c3ff;
+  --dark: #627db3;
+  --accent: #daff8c;
+  --dark-accent: #9bb36b;
   --light: #eee;
 }
 
-@import "navbar";
-@import "mixins";
+@import 'navbar';
+@import 'mixins';
 
 @include content;
 
@@ -16,7 +16,8 @@
   src: url(../fonts/OpenSans-Regular.ttf);
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -77,7 +78,7 @@ html, body {
 }
 
 .experience {
-  $dot-size: 20px;
+  $dot-size: 24px;
   display: flex;
   margin: 0 20px;
   min-width: calc((#{$dot-size} + 10px) * 5);
@@ -85,11 +86,24 @@ html, body {
     width: $dot-size;
     height: $dot-size;
     border-radius: calc(#{$dot-size} / 2);
-    background-color: var(--dark);
+    background-color: var(--primary);
     margin: 0 5px;
+    position: relative;
+    &--filled {
+      &:after {
+        content: '';
+        width: $dot-size;
+        height: $dot-size;
+        position: absolute;
+        background-color: var(--dark);
+        border-radius: calc(#{$dot-size} / 2);
+      }
+    }
     &--half {
-      width: calc(#{$dot-size} / 2);
-      border-radius: calc(#{$dot-size} / 2) 0 0 calc(#{$dot-size} / 2);
+      &:after {
+        width: calc(#{$dot-size} / 2);
+        border-radius: calc(#{$dot-size} / 2) 0 0 calc(#{$dot-size} / 2);
+      }
     }
   }
 }

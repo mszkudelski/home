@@ -4,14 +4,14 @@ import '../assets/img/js-logo.png';
 import { Technologies } from './constants/technologies.const';
 
 function getExperienceDots(experience: number): string {
-  return new Array(Math.ceil(experience))
+  return new Array(5)
     .fill(null)
     .reduce(
       (result, _, index) =>
         result +
         `<div class="experience__dot ${
           index + 1 > experience ? 'experience__dot--half' : ''
-        }"></div>`,
+        } ${index <= experience ? 'experience__dot--filled' : ''}"></div>`,
       '',
     );
 }
