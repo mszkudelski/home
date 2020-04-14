@@ -36,6 +36,20 @@ function getTechnologyTemplate(technologies) {
   );
 }
 
-document.querySelector('#tech').innerHTML = getTechnologyTemplate(Technologies);
+const techElement = document.getElementById('tech');
+techElement.innerHTML = getTechnologyTemplate(Technologies);
+
+let techElementShown = false;
+const techButton = document.getElementById('tech-button');
+techButton.addEventListener('click', () => {
+  if (techElementShown) {
+    techElement.style.height = '480px';
+    techButton.innerText = 'Zobacz więcej';
+  } else {
+    techElement.style.height = 'auto';
+    techButton.innerText = 'Schowaj';
+  }
+  techElementShown = !techElementShown;
+});
 
 export {};

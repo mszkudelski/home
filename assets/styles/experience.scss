@@ -1,0 +1,30 @@
+.experience {
+  $dot-size: 28px;
+  display: flex;
+  margin: 0 20px;
+  min-width: calc((#{$dot-size} + 10px) * 5);
+  &__dot {
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: calc(#{$dot-size} / 2);
+    background-color: var(--primary);
+    margin: 0 5px;
+    position: relative;
+    &--filled {
+      &:after {
+        content: '';
+        width: $dot-size;
+        height: $dot-size;
+        position: absolute;
+        background-color: var(--dark);
+        border-radius: calc(#{$dot-size} / 2);
+      }
+    }
+    &--half {
+      &:after {
+        width: calc(#{$dot-size} / 2);
+        border-radius: calc(#{$dot-size} / 2) 0 0 calc(#{$dot-size} / 2);
+      }
+    }
+  }
+}
