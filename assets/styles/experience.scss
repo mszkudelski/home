@@ -1,8 +1,11 @@
+@import 'mixins';
+
 .experience {
   $dot-size: 28px;
   display: flex;
   margin: 0 20px;
   min-width: calc((#{$dot-size} + 10px) * 5);
+  position: relative;
   &__dot {
     width: $dot-size;
     height: $dot-size;
@@ -25,6 +28,19 @@
         width: calc(#{$dot-size} / 2);
         border-radius: calc(#{$dot-size} / 2) 0 0 calc(#{$dot-size} / 2);
       }
+    }
+  }
+
+  .experience__tooltip {
+    @include tooltip();
+    top: -60px;
+    font-size: 0.8em;
+    width: 200px;
+  }
+  &:hover {
+    cursor: pointer;
+    .experience__tooltip {
+      display: block;
     }
   }
 }

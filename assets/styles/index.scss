@@ -82,6 +82,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
     .experience {
       margin: 20px 0;
     }
@@ -93,6 +94,15 @@ body {
     max-height: $size;
     font-size: 0.8em;
     margin-bottom: 20px;
+    & ~ .tech__img-tooltip {
+      @include tooltip();
+    }
+    &:hover {
+      cursor: pointer;
+      & ~ .tech__img-tooltip {
+        display: block;
+      }
+    }
   }
 
   &__button {

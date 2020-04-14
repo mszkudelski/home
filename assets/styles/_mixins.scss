@@ -21,3 +21,26 @@
   width: 100%;
   text-align: left;
 }
+
+@mixin tooltip {
+  position: absolute;
+  top: -24px;
+  display: none;
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 10px 25px;
+  text-align: center;
+  &:after {
+    $size: 16px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: $size solid var(--dark);
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+    position: absolute;
+    bottom: -$size;
+    left: 50%;
+    margin-left: -$size;
+  }
+}
