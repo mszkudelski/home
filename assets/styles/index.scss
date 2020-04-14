@@ -1,0 +1,95 @@
+:root {
+  --primary: #A5C3FF;
+  --dark: #627DB3;
+  --accent: #DAFF8C;
+  --dark-accent: #9BB36B;
+  --light: #eee;
+}
+
+@import "navbar";
+@import "mixins";
+
+@include content;
+
+@font-face {
+  font-family: font;
+  src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: font, serif;
+}
+
+.header {
+  background-color: var(--dark);
+  padding: 50px 0;
+
+  &__title {
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  &__row {
+    display: flex;
+    position: relative;
+  }
+
+  $img-size: 200px;
+
+  &__description {
+    margin-left: calc(#{$img-size} + 20px);
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+
+  &__img {
+    max-width: $img-size;
+    border-radius: 100px;
+    position: absolute;
+    border: 2px solid var(--dark);
+  }
+}
+
+.tech {
+  margin: 40px 0;
+
+  &__card {
+    box-shadow: 0px 0px 23px -8px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  &__img {
+    min-width: 50px;
+    max-width: 50px;
+    font-size: 0.8em;
+  }
+}
+
+.experience {
+  $dot-size: 20px;
+  display: flex;
+  margin: 0 20px;
+  min-width: calc((#{$dot-size} + 10px) * 5);
+  &__dot {
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: calc(#{$dot-size} / 2);
+    background-color: var(--dark);
+    margin: 0 5px;
+    &--half {
+      width: calc(#{$dot-size} / 2);
+      border-radius: calc(#{$dot-size} / 2) 0 0 calc(#{$dot-size} / 2);
+    }
+  }
+}
