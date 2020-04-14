@@ -10,8 +10,10 @@ function getExperienceDots(experience: number): string {
       (result, _, index) =>
         result +
         `<div class="experience__dot ${
-          index + 1 > experience ? 'experience__dot--half' : ''
-        } ${index <= experience ? 'experience__dot--filled' : ''}"></div>`,
+          index + 1 > experience && experience % 1 !== 0
+            ? 'experience__dot--half'
+            : ''
+        } ${index < experience ? 'experience__dot--filled' : ''}"></div>`,
       '',
     );
 }
