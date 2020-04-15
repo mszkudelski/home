@@ -59,12 +59,17 @@ body {
 }
 
 .tech {
-  margin: 10px 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow: hidden;
-  height: 480px;
+  flex-direction: column;
+  align-items: center;
+  &__list {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    height: 480px;
+  }
 
   &__header {
     @include title();
@@ -101,7 +106,7 @@ body {
     &:hover {
       cursor: pointer;
       & ~ .tech__img-tooltip {
-        display: block;
+        opacity: 1;
       }
     }
   }
@@ -117,5 +122,11 @@ body {
       color: var(--primary);
       cursor: pointer;
     }
+  }
+
+  &__disclaimer {
+    margin: 20px 22px;
+    font-size: 0.7em;
+    text-align: center;
   }
 }

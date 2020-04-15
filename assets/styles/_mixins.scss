@@ -25,11 +25,12 @@
 @mixin tooltip {
   position: absolute;
   top: -24px;
-  display: none;
+  opacity: 0;
   background-color: var(--dark);
   color: var(--light);
   padding: 10px 25px;
   text-align: center;
+  transition: all ease 150ms;
   &:after {
     $size: 16px;
     content: '';

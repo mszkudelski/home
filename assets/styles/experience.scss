@@ -46,7 +46,7 @@
   &:hover {
     cursor: pointer;
     .experience__tooltip {
-      display: block;
+      opacity: 1;
     }
   }
 }
