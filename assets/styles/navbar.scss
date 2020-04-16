@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 0;
   border-bottom: solid 2px var(--dark);
   &__content {
     max-width: 1024px;
@@ -15,6 +14,7 @@
     font-size: 2em;
     color: var(--dark);
     font-weight: 700;
+    margin: 20px 0;
   }
   &__menu {
     display: flex;
