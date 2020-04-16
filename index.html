@@ -10,72 +10,82 @@
     <meta name="author" content="Marek Szkudelski">
 </head>
 <body>
-<nav class="navbar">
-    <div class="navbar__content">
-        <h1 class="navbar__title">
-            <a href="#">
-                Szkudelski Marek
-            </a>
-        </h1>
-        <ul class="navbar__menu">
-            <li class="navbar__menu-item"><a href="#">Strona główna</a></li>
-            <li class="navbar__menu-item"><a href="#">Materiały</a></li>
-        </ul>
-    </div>
-</nav>
-<header class="page-header section">
-    <div class="content">
-        <h2 class="page-header__title">
-            Cześć, jestem Marek!
-        </h2>
-        <div class="page-header__row">
-            <img class="page-header__img" src="zdjęcie1-min.jpg" alt="Zdjęcie profilowe">
-            <div class="page-header__description">
-                Jestem developerem głównie w obszarach front-endu. Programuję z użyciem Javascriptu.
-                Na tej stronie znajdziesz podstawowe informacje o mnie w kontekście zawodowym.
-                Będą też tutaj zgromadzone wszelkie materiały ze mną związane takie jak wpisy na blogach moje autorstwa.
+    <nav class="navbar">
+        <div class="navbar__content">
+            <h1 class="navbar__title">
+                <a href="#">
+                    Szkudelski Marek
+                </a>
+            </h1>
+            <ul class="navbar__menu">
+                <li class="navbar__menu-item"><a href="#">Strona główna</a></li>
+                <li class="navbar__menu-item"><a href="#">Materiały</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="page-header section">
+        <div class="content">
+            <h2 class="page-header__title">
+                Cześć, jestem Marek!
+            </h2>
+            <div class="page-header__row">
+                <img class="page-header__img" src="zdjęcie1-min.jpg" alt="Zdjęcie profilowe">
+                <div class="page-header__description">
+                    Jestem developerem głównie w obszarach front-endu. Programuję z użyciem Javascriptu.
+                    Na tej stronie znajdziesz podstawowe informacje o mnie w kontekście zawodowym.
+                    Będą też tutaj zgromadzone wszelkie materiały ze mną związane takie jak wpisy na blogach moje autorstwa.
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<main>
-    <section class="section">
-        <div class="content jobs">
-            <h2 class="header"><span class="title">Technologie</span></h2>
-            <div class="jobs__list" id="jobs">
+    <main>
+        <section class="section">
+            <div class="content jobs">
+                <h2 class="header"><span class="title">Technologie</span></h2>
+                <div class="jobs__list" id="jobs">
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="tech content">
-            <h2 class="header"><span class="title">Technologie</span></h2>
-            <div class="tech__list" id="tech">
+        </section>
+        <section class="section">
+            <div class="tech content">
+                <h2 class="header"><span class="title">Technologie</span></h2>
+                <div class="tech__list" id="tech">
+                </div>
+                <button type="button" class="tech__button" id="tech-button">Zobacz więcej</button>
+                <p class="tech__disclaimer">
+                    * Koła oznaczają poziom doświadczenia i umiejętności. Są to wartości relatywne pomiędzy sobą.
+                    Dla przykładu 1 oznacza, że znam tylko podstawy, ale nie wykorzystywałem komercyjnie.
+                    5 oznacza, że mam bardzo bogate doświadczenie komercyjne i jest mało rzeczy, których nie znam.
+                </p>
             </div>
-            <button type="button" class="tech__button" id="tech-button">Zobacz więcej</button>
-            <p class="tech__disclaimer">
-                * Koła oznaczają poziom doświadczenia i umiejętności. Są to wartości relatywne pomiędzy sobą.
-                Dla przykładu 1 oznacza, że znam tylko podstawy, ale nie wykorzystywałem komercyjnie.
-                5 oznacza, że mam bardzo bogate doświadczenie komercyjne i jest mało rzeczy, których nie znam.
-            </p>
-        </div>
-    </section>
-    <section class="section">
-        <div class="content twitter">
-            <div class="twitter__timeline">
-                <a class="twitter-timeline" href="https://twitter.com/MarekSzkudelski?ref_src=twsrc%5Etfw">Tweets by
-                    MarekSzkudelski</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </section>
+        <section class="section">
+            <div class="content social">
+                <div class="twitter">
+                    <div class="twitter__timeline">
+                        <a class="twitter-timeline" href="https://twitter.com/MarekSzkudelski?ref_src=twsrc%5Etfw">Tweets by
+                            MarekSzkudelski</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+                <div class="social__links">
+                    <h2 class="header"><span class="title">Kontakt</span></h2>
+                    <a href="https://twitter.com/MarekSzkudelski?ref_src=twsrc%5Etfw"
+                       class="twitter-follow-button twitter__button" data-show-count="false" >Follow @MarekSzkudelski</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <a href="https://stackoverflow.com/users/13093310/marek-szkudelski" target="_blank"><img
+                            src="https://stackoverflow.com/users/flair/13093310.png" width="208" height="58"
+                            alt="profile for Marek Szkudelski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+                            title="profile for Marek Szkudelski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+                </div>
             </div>
-            <a href="https://twitter.com/MarekSzkudelski?ref_src=twsrc%5Etfw"
-               class="twitter-follow-button twitter__button" data-show-count="false">Follow @MarekSzkudelski</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <a href="https://stackoverflow.com/users/13093310/marek-szkudelski"><img
-                    src="https://stackoverflow.com/users/flair/13093310.png" width="208" height="58"
-                    alt="profile for Marek Szkudelski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
-                    title="profile for Marek Szkudelski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+        </section>
+    </main>
+    <footer>
+        <div class="content">
+            <div class="copyright">Copyright &#x24D2;  - Marek Szkudelski</div>
         </div>
-    </section>
-</main>
+    </footer>
 </body>
 </html>
