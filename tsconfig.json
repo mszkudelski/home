@@ -2,9 +2,10 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "es5",
-    "sourceMap": true
+    "sourceMap": true,
+    "allowJs": true
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

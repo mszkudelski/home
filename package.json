@@ -2,11 +2,12 @@
   "name": "home",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Marek Szkudelski <marek.szkudelski@sonalake.com>",
+  "author": "Marek Szkudelski <marek.szkudelski@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "webpack --watch | webpack-dev-server",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start:prod": "webpack --watch --mode production | webpack-dev-server"
   },
   "dependencies": {
     "autoprefixer": "^9.7.6",

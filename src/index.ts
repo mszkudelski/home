@@ -93,4 +93,18 @@ techButton.addEventListener('click', () => {
   techElementShown = !techElementShown;
 });
 
+fetch(
+  'https://api.stackexchange.com/2.2/users/13093310?order=desc&sort=reputation&site=stackoverflow',
+)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    const { badge_counts, reputation, link } = data.items[0];
+
+    document.getElementById('stack-overflow').innerHTML = `
+        ${reputation} reputacji
+    `;
+  });
+
 export {};

@@ -31,9 +31,13 @@
         <div class="page-header__row">
             <img class="page-header__img" src="assets/img/zdjęcie1-min.jpg" alt="Zdjęcie profilowe">
             <div class="page-header__description">
-                Jestem developerem głównie w obszarach front-endu. Programuję z użyciem Javascriptu.
-                Współtworzę także blog FrontemDoJs.pl.
-                Będą tutaj zgromadzone wszelkie materiały ze mną związane takie jak wpisy na blogach moje autorstwa.
+                <p>
+                    Jestem developerem głównie w obszarach front-endu. Jestem inżynierem i pasjonatem programowania.
+                    Współtworzę także blog FrontemDoJs.pl.
+                </p>
+                <p>
+                    Będą tutaj zgromadzone wszelkie materiały ze mną związane takie jak wpisy na blogach moje autorstwa.
+                </p>
             </div>
         </div>
     </div>
@@ -97,7 +101,7 @@
                     </a>
                 </div>
                 <div class="social__row">
-                    <span>Blog FrontemDoJs.pl:</span>
+                    <span class="social__label">Blog FrontemDoJs.pl:</span>
                     <a href="https://frontemdojs.pl" target="_blank" class="social__blog" id="blog"></a>
                 </div>
                 <div class="social__row">
@@ -107,10 +111,10 @@
                     <a class="social__link" href="mailto:marek.szkudelski@gmail.com">marek.szkudelski@gmail.com</a>
                 </div>
                 <div class="social__row">
-                    <a href="https://stackoverflow.com/users/13093310/marek-szkudelski" target="_blank"><img
-                            src="https://stackoverflow.com/users/flair/13093310.png" width="208" height="58"
-                            alt="profile for Marek Szkudelski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
-                            title="profile for Marek Szkudelski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+                    <div class="social__icon stack-overflow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><style>.st0{fill:#fff}.st1{fill:#fff}</style><path class="st0" d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"/><path class="st1" d="M38.8 68.4l37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18l35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2l29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3l-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"/></svg>
+                    </div>
+                    <div id="stack-overflow" class="social__stack-overflow"></div>
                 </div>
             </div>
         </div>
@@ -122,5 +126,7 @@
         <div class="source">Cały kod tej strony został umieszczony <a class="source__link" href="https://github.com/mszkudelski/home">tutaj</a>.</div>
     </div>
 </footer>
+
+<script type='text/javascript' src='https://api.stackexchange.com/js/2.0/all.js'></script>
 </body>
 </html>

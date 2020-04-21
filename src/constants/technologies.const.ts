@@ -23,7 +23,7 @@ export const Technologies: Technology[] = [
   {
     name: 'Angular',
     description:
-      'Na codzień w pracy tworzę złożone aplikacje biznesowe z użyciem Angular. Cenię sobie w nim solidną architekturę, Dependency Injection, albo modularność.',
+      'Na codzień w pracy tworzę złożone aplikacje biznesowe z użyciem Angular. Cenię sobie w nim solidną architekturę, Dependency Injection oraz modularność.',
     experience: 4,
     logo: 'ng-logo.png',
   },

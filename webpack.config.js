@@ -52,17 +52,6 @@ module.exports = (env, argv) => ({
               publicPath: '',
             },
           },
-          // {
-          //   loader: 'img-loader',
-          //   options: {
-          //     plugins: [
-          //       require('imagemin-mozjpeg')({
-          //         progressive: true,
-          //         arithmetic: false,
-          //       }),
-          //     ],
-          //   },
-          // },
         ],
       },
       {

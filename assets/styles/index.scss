@@ -204,13 +204,12 @@ body {
   }
   &__icon {
     color: var(--light);
-    max-height: 20px;
-    max-width: 20px;
+    height: 20px;
+    width: 20px;
     margin-right: 20px;
-
-    svg.stackoverflow {
-      width: 36px;
-      height: 36px;
+    &.stack-overflow {
+      height: 40px;
+      width: 40px;
     }
   }
   &__row {
@@ -224,6 +223,17 @@ body {
     img {
       max-height: 40px;
     }
+  }
+  &__stack-overflow {
+    display: flex;
+    align-items: center;
+    color: var(--light);
+    font-weight: 700;
+  }
+  &__label {
+    color: var(--light);
+    font-weight: 700;
+    margin-bottom: 10px;
   }
 }
 
