@@ -84,7 +84,7 @@ let techElementShown = false;
 const techButton = document.getElementById('tech-button');
 techButton.addEventListener('click', () => {
   if (techElementShown) {
-    techElement.style.height = '420px';
+    techElement.style.height = '460px';
     techButton.innerText = 'Zobacz więcej';
   } else {
     techElement.style.height = 'auto';

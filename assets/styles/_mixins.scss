@@ -35,7 +35,7 @@
 
 @mixin tooltip {
   position: absolute;
-  top: -24px;
+  top: -34px;
   opacity: 0;
   background-color: var(--dark);
   color: var(--light);
@@ -62,5 +62,14 @@
     &:after {
       border-top: none;
     }
+  }
+}
+
+@mixin link{
+  color: var(--accent);
+  text-decoration: none;
+  transition: all ease 150ms;
+  &:hover {
+    color: var(--primary);
   }
 }

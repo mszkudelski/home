@@ -42,10 +42,12 @@
     top: -85px;
     font-size: 0.9em;
     width: 200px;
+    display: none;
   }
   &:hover {
     cursor: pointer;
     .experience__tooltip {
+      display: block;
       opacity: 1;
     }
   }

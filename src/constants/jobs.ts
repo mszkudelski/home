@@ -10,14 +10,20 @@ export const Jobs: Job[] = [
     companyName: 'Sonalake',
     startDate: '01.04.2019',
     position: 'Frontend Developer',
-    description:
-      'Jakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projekty',
+    description: `
+      Pracę w tej w firmie można podzielić na dwa projekty w których brałem udział.
+      Pierwszy to był duży system dla branży telekomunikacyjnej. Dało mi to ogląd na to jak może wyglądać zarządzanie dużą aplikacją z wieloma wersjami.
+      Drugi projekt to była aplikacja mobilna. Ze względu na mały zespół miałem okazję rozwinąć się w różnych dziedzinach takich jak CI/CD, pisanie specyfikacji, bezpośredni kontakt z klientem.
+      `,
   },
   {
     companyName: 'Globe Group',
     startDate: '05.12.2016',
     position: 'Junior/Regular Frontend Developer',
-    description:
-      'Jakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projektyJakieś projekty',
+    description: `
+      Pierwsza praca jaką podjąłem w branży IT. 
+      Od samego początku uczyłem się wykorzystywać Angular i Typescript przy mniejszych oraz średnich aplikacjach webowych.
+      Dzięki stosunkowo krótkim projektom przez ponad dwa lata miałem okazję pracować przy zróżnicowanych systemach takich jak 
+      e-commerce, programy lojalnościowe czy panele administracyjne.`,
   },
 ];

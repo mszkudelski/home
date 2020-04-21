@@ -47,7 +47,7 @@ body {
     position: relative;
   }
 
-  $img-size: 200px;
+  $img-size: 240px;
 
   &__description {
     margin-left: calc(#{$img-size} + 50px);
@@ -57,7 +57,7 @@ body {
 
   &__img {
     max-width: $img-size;
-    border-radius: 100px;
+    border-radius: calc(#{$img-size} / 2);
     position: absolute;
     border: 2px solid $background-color;
   }
@@ -116,7 +116,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     overflow: hidden;
-    height: 420px;
+    height: 460px;
+    padding-top: 40px;
   }
 
   &__card {
@@ -217,11 +218,11 @@ body {
     align-items: center;
   }
   &__link {
-    color: #000;
-    text-decoration: none;
-    transition: all ease 150ms;
-    &:hover {
-      color: var(--primary);
+    @include link();
+  }
+  &__blog {
+    img {
+      max-height: 40px;
     }
   }
 }
@@ -245,4 +246,14 @@ footer {
   padding: 20px;
   display: flex;
   justify-content: center;
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.source {
+  &__link {
+    @include link();
+  }
 }
