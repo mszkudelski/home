@@ -77,6 +77,18 @@ function getJobsTemplate(jobs: Job[]): string {
 const jobsElement = document.getElementById('jobs');
 jobsElement.innerHTML = getJobsTemplate(Jobs);
 
+Array.from(document.querySelectorAll('.jobs__item')).forEach((jobItem) => {
+  let expanded;
+  jobItem.querySelector('.jobs__name').addEventListener('click', () => {
+    if (expanded) {
+      jobItem.classList.remove('jobs__item--expanded');
+    } else {
+      jobItem.classList.add('jobs__item--expanded');
+    }
+    expanded = !expanded;
+  });
+});
+
 const techElement = document.getElementById('tech');
 techElement.innerHTML = getTechnologyTemplate(Technologies);
 

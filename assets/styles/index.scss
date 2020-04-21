@@ -74,6 +74,11 @@ body {
   &__item {
     width: 100%;
     display: flex;
+    &--expanded {
+      .jobs__description {
+        height: 100px;
+      }
+    }
   }
   &__time {
     display: flex;
@@ -96,6 +101,10 @@ body {
   &__name {
     font-weight: 700;
     font-size: 1.5em;
+    cursor: pointer;
+    &:hover {
+      color: var(--dark);
+    }
   }
   &__position {
     color: #555;
@@ -104,6 +113,16 @@ body {
   &__description {
     padding-left: 10px;
     margin-top: 20px;
+    height: 0;
+    overflow: hidden;
+    transition: all ease 150ms;
+  }
+  &__item {
+    &--expanded {
+      .jobs__description {
+        height: 100px;
+      }
+    }
   }
 }
 
