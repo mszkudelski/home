@@ -1,8 +1,13 @@
 import '../assets/styles/index.scss';
+import '../assets/img/blog.jpg';
 import '../assets/img/zdjęcie1-min.jpg';
-import '../assets/img/js-logo.png';
 import { Technologies } from './constants/technologies.const';
 import { Job, Jobs } from './constants/jobs';
+
+const myIcon = new Image();
+myIcon.src = require(`../assets/img/blog.png`);
+
+document.getElementById('blog').appendChild(myIcon);
 
 function getExperienceDots(experience: number): string {
   return new Array(5)
@@ -31,7 +36,7 @@ function getTechnologyTemplate(technologies) {
         <div class="tech__img-tooltip">${technology.name}</div>
         <div class="experience">
             ${getExperienceDots(technology.experience)}
-            <div class="experience__tooltip">Poziom doświadczenia i umiejętności*: <span class="experience__value">${
+            <div class="experience__tooltip experience__tooltip--no-arrow">Poziom doświadczenia i umiejętności*: <span class="experience__value">${
               technology.experience
             }</span></div>
         </div>
@@ -49,8 +54,7 @@ function getJobsTemplate(jobs: Job[]): string {
       html +
       ` <div class="jobs__item">
     <div class="jobs__time">
-    ${ index === 0 ?
-        '<div class="jobs__time-item">obecnie</div>' : ''}
+    ${index === 0 ? '<div class="jobs__time-item">obecnie</div>' : ''}
         <div class="jobs__time-line"></div>
         <div class="jobs__time-item">${job.startDate}</div>
     </div>
@@ -80,7 +84,7 @@ let techElementShown = false;
 const techButton = document.getElementById('tech-button');
 techButton.addEventListener('click', () => {
   if (techElementShown) {
-    techElement.style.height = '480px';
+    techElement.style.height = '420px';
     techButton.innerText = 'Zobacz więcej';
   } else {
     techElement.style.height = 'auto';
