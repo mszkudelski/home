@@ -8,12 +8,11 @@
 
 @import 'navbar';
 @import 'mixins';
+@include content;
 @import 'experience';
 @import 'partials/technologies';
 @import 'partials/jobs';
 @import 'partials/social';
-
-@include content;
 
 @font-face {
   font-family: font;
@@ -51,7 +50,7 @@ body {
     position: relative;
   }
 
-  $img-size: 240px;
+  $img-size: 340px;
 
   &__description {
     margin-left: calc(#{$img-size} + 50px);
@@ -65,6 +64,26 @@ body {
     position: absolute;
     border: 2px solid $background-color;
   }
+
+  @media (max-width: 768px) {
+    &__title {
+      text-align: center;
+    }
+    &__row {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__img {
+      position: relative;
+    }
+    &__description {
+      margin-left: 0;
+    }
+    &__img {
+      max-width: 240px;
+      border-radius: calc(240px / 2);
+    }
+  }
 }
 
 footer {
@@ -77,6 +96,16 @@ footer {
   .content {
     display: flex;
     justify-content: space-between;
+  }
+  @media (max-width: 768px) {
+    text-align: center;
+    .content {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    .copyright {
+      margin-top: 20px;
+    }
   }
 }
 

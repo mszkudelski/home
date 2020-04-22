@@ -16,7 +16,7 @@
       margin-top: 0;
     }
     .title {
-      border-color: var(--primary);
+      border-bottom: solid 2px var(--primary);
     }
     > * {
       margin-bottom: 30px;
@@ -31,10 +31,11 @@
     color: var(--light);
     height: 20px;
     width: 20px;
-    margin-right: 20px;
+    margin-right: 30px;
     &.stack-overflow {
       height: 40px;
       width: 40px;
+      margin-right: 10px;
     }
   }
   &__row {
@@ -60,6 +61,15 @@
     font-weight: 700;
     margin-bottom: 10px;
   }
+
+  @media (max-width: 500px) {
+    &__links {
+      padding: 0 10px;
+    }
+    &__icon--mail {
+      margin-right: 10px;
+    }
+  }
 }
 
 .twitter {
@@ -72,5 +82,8 @@
     height: 400px;
     overflow: scroll;
     border: 1px var(--dark) solid;
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 }

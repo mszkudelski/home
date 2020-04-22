@@ -47,15 +47,18 @@
   &__description {
     padding-left: 10px;
     margin-top: 20px;
-    height: 0;
-    overflow: hidden;
-    transition: all ease 150ms;
   }
   &__item {
     &--expanded {
       .jobs__description {
         height: 100px;
       }
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__time {
+      display: none;
     }
   }
 }

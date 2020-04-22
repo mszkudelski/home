@@ -1,5 +1,6 @@
 import '../assets/styles/index.scss';
 import '../assets/img/zdjęcie1-min.jpg';
+import '../assets/img/home.svg';
 import { Technologies } from './constants/technologies.const';
 import { Job, Jobs } from './constants/jobs';
 
@@ -51,23 +52,24 @@ function getJobsTemplate(jobs: Job[]): string {
   return jobs.reduce(
     (html, job, index) =>
       html +
-      ` <div class="jobs__item">
-    <div class="jobs__time">
-    ${index === 0 ? '<div class="jobs__time-item">obecnie</div>' : ''}
-        <div class="jobs__time-line"></div>
-        <div class="jobs__time-item">${job.startDate}</div>
-    </div>
-    <div class="jobs__content">
-    <div class="jobs__name">
-        ${job.companyName}
+      ` 
+      <div class="jobs__item">
+        <div class="jobs__time">
+            ${index === 0 ? '<div class="jobs__time-item">obecnie</div>' : ''}
+            <div class="jobs__time-line"></div>
+            <div class="jobs__time-item">${job.startDate}</div>
         </div>
-        <div class="jobs__position">
-        ${job.position}
-    </div>
-    <div class="jobs__description">
-        ${job.description}
-    </div>
-    </div>
+        <div class="jobs__content">
+            <div class="jobs__name">
+                ${job.companyName}
+                </div>
+                <div class="jobs__position">
+                ${job.position}
+            </div>
+            <div class="jobs__description">
+                ${job.description}
+            </div>
+        </div>
     </div>`,
     '',
   );
@@ -75,18 +77,6 @@ function getJobsTemplate(jobs: Job[]): string {
 
 const jobsElement = document.getElementById('jobs');
 jobsElement.innerHTML = getJobsTemplate(Jobs);
-
-Array.from(document.querySelectorAll('.jobs__item')).forEach((jobItem) => {
-  let expanded;
-  jobItem.querySelector('.jobs__name').addEventListener('click', () => {
-    if (expanded) {
-      jobItem.classList.remove('jobs__item--expanded');
-    } else {
-      jobItem.classList.add('jobs__item--expanded');
-    }
-    expanded = !expanded;
-  });
-});
 
 const techElement = document.getElementById('tech');
 techElement.innerHTML = getTechnologyTemplate(Technologies);
