@@ -59,7 +59,7 @@ module.exports = (env, argv) => ({
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]?[hash]',
-          publicPath: '/',
+          publicPath: process.env.HOST_PATH || '/',
         },
       },
     ],
