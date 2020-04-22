@@ -1,5 +1,4 @@
 import '../assets/styles/index.scss';
-import '../assets/img/blog.jpg';
 import '../assets/img/zdjęcie1-min.jpg';
 import { Technologies } from './constants/technologies.const';
 import { Job, Jobs } from './constants/jobs';

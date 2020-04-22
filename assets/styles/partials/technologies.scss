@@ -1,0 +1,68 @@
+.tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__list {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    height: 460px;
+    padding-top: 40px;
+  }
+
+  &__card {
+    box-shadow: 0 0 23px -8px rgba(0, 0, 0, 0.75);
+    width: 260px;
+    margin: 16px;
+    border-radius: 10px;
+    padding: 20px 26px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--light);
+    font-size: 0.95em;
+    .experience {
+      margin: 20px 0;
+    }
+  }
+
+  &__img {
+    $size: 100px;
+    min-height: $size;
+    max-height: $size;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    & ~ .tech__img-tooltip {
+      @include tooltip();
+    }
+    &:hover {
+      cursor: pointer;
+      & ~ .tech__img-tooltip {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__button {
+    background-color: var(--dark);
+    color: var(--light);
+    font-size: 1em;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    transition: all 150ms ease;
+    &:hover {
+      color: var(--primary);
+      cursor: pointer;
+    }
+  }
+
+  &__disclaimer {
+    margin: 20px 22px;
+    font-size: 0.75em;
+    text-align: center;
+  }
+}
