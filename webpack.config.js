@@ -69,8 +69,9 @@ module.exports = (env, argv) => ({
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: path.resolve(__dirname, 'dist'),
+    path: argv.mode === 'production' ? '' : path.resolve(__dirname, 'dist'),
+    publicPath:
+      argv.mode === 'production' ? '' : path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
