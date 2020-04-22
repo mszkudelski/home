@@ -27,7 +27,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn install
-    - run: yarn build
+    - run: HOST_PATH=https://mszkudelski.github.io/home/ yarn build
       env:
         CI: true
     - run: cp -r dist build  
