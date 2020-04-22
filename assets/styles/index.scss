@@ -1,6 +1,6 @@
 :root {
   --primary: #a5c3ff;
-  --dark: #627db3;
+  --dark: #3a5386;
   --accent: #daff8c;
   --dark-accent: #6b8345;
   --light: #fff;
@@ -17,6 +17,7 @@
 @font-face {
   font-family: font;
   src: url(../fonts/OpenSans-Regular.ttf);
+  font-display: swap;
 }
 
 html,

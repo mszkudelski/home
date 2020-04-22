@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: './src/index.ts',
@@ -77,5 +79,9 @@ module.exports = (env, argv) => ({
       title: 'Custom template',
       template: 'index.html',
     }),
+    new ImageminWebpWebpackPlugin(),
   ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
 });

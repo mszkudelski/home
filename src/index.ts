@@ -5,6 +5,7 @@ import { Job, Jobs } from './constants/jobs';
 
 const myIcon = new Image();
 myIcon.src = require(`../assets/img/blog.png`);
+myIcon.alt = 'Blog FrontemDoJS.pl link';
 
 document.getElementById('blog').appendChild(myIcon);
 
