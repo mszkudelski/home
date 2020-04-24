@@ -51,7 +51,7 @@ module.exports = (env, argv) => ({
               limit: 20000,
               name: '[name].[ext]',
               useRelativePath: true,
-              outputPath: '/assets/img',
+              outputPath: 'assets/img',
               publicPath: '',
             },
           },
