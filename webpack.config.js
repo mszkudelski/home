@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: './src/index.ts',
@@ -50,7 +51,7 @@ module.exports = (env, argv) => ({
               limit: 20000,
               name: '[name].[ext]',
               useRelativePath: true,
-              outputPath: 'assets/img',
+              outputPath: '/assets/img',
               publicPath: '',
             },
           },
@@ -71,8 +72,8 @@ module.exports = (env, argv) => ({
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/'),
+    publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist/'),
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -80,6 +81,7 @@ module.exports = (env, argv) => ({
       template: 'index.html',
     }),
     new ImageminWebpWebpackPlugin(),
+    new WorkboxPlugin.GenerateSW(),
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin()],

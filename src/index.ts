@@ -3,6 +3,12 @@ import '../assets/img/zdjęcie1-min.jpg';
 import { Technologies } from './constants/technologies.const';
 import { Job, Jobs } from './constants/jobs';
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
+
 const myIcon = new Image();
 myIcon.src = require(`../assets/img/blog.png`);
 myIcon.alt = 'Blog FrontemDoJS.pl link';
