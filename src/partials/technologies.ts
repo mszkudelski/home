@@ -19,7 +19,7 @@ export function getTechnologyTemplate(technologies) {
       html +
       `
     <div class="tech__card">
-        <img class="tech__img" src="${require(`../../assets/img/${
+        <img loading="lazy" class="tech__img" src="${require(`../../assets/img/${
           technology.logo
         }`)}" aria-hidden="true" alt="${technology.name}">
         <div class="tech__img-tooltip">${technology.name}</div>

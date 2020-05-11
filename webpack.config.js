@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: './src/index.ts',
@@ -81,6 +82,7 @@ module.exports = (env, argv) => ({
       template: 'index.html',
     }),
     new ImageminWebpWebpackPlugin(),
+    new CopyPlugin([{ from: 'manifest.json', to: 'manifest.json' }]),
     new WorkboxPlugin.GenerateSW(),
   ],
   optimization: {
