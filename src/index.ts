@@ -20,14 +20,18 @@ blogIcon.alt = 'Blog FrontemDoJS.pl link';
 
 document.getElementById('blog').appendChild(blogIcon);
 
-const jobsElement = document.getElementById('jobs');
-jobsElement.innerHTML = getJobsTemplate(Jobs);
+setTimeout(function renderJobs() {
+  const jobsElement = document.getElementById('jobs');
+  jobsElement.innerHTML = getJobsTemplate(Jobs);
+});
 
-const techElement = document.getElementById('tech');
-techElement.innerHTML = getTechnologyTemplate(Technologies);
+setTimeout(function renderTechs() {
+  const techElement = document.getElementById('tech');
+  techElement.innerHTML = getTechnologyTemplate(Technologies);
 
-const techButton = document.querySelector<HTMLButtonElement>('#tech-button');
-setTechnologiesToggleListener(techButton, techElement);
+  const techButton = document.querySelector<HTMLButtonElement>('#tech-button');
+  setTechnologiesToggleListener(techButton, techElement);
+});
 
 fetch(
   'https://api.stackexchange.com/2.2/users/13093310?order=desc&sort=reputation&site=stackoverflow',
