@@ -19,9 +19,9 @@ export function getTechnologyTemplate(technologies) {
       html +
       `
     <div class="tech__card">
-        <img loading="lazy" class="tech__img" src="${require(`../../assets/img/${
+        <img class="tech__img" src="../../assets/img/${
           technology.logo
-        }`)}" aria-hidden="true" alt="${technology.name}">
+        }" aria-hidden="true" alt="${technology.name}">
         <div class="tech__img-tooltip">${technology.name}</div>
         <div class="experience">
             ${getExperienceDots(technology.experience)}

@@ -1,5 +1,5 @@
 import '../assets/styles/index.scss';
-import '../assets/img/zdjęcie1-min.jpg';
+// import '../assets/img/zdjęcie1-min.jpg';
 import { Technologies } from './constants/technologies.const';
 import { Job, Jobs } from './constants/jobs';
 import {
@@ -14,24 +14,26 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const blogIcon = new Image();
-blogIcon.src = require(`../assets/img/blog.png`);
-blogIcon.alt = 'Blog FrontemDoJS.pl link';
+// const blogIcon = new Image();
+// blogIcon.src = require(`../assets/img/blog.png`);
+// blogIcon.alt = 'Blog FrontemDoJS.pl link';
 
-document.getElementById('blog').appendChild(blogIcon);
+// document.getElementById('blog').appendChild(blogIcon);
 
-setTimeout(function renderJobs() {
-  const jobsElement = document.getElementById('jobs');
-  jobsElement.innerHTML = getJobsTemplate(Jobs);
-});
+// setTimeout(function renderJobs() {
+//   const jobsElement = document.getElementById('jobs');
+//   jobsElement.innerHTML = getJobsTemplate(Jobs);
+// });
+//
+// setTimeout(function renderTechs() {
+//   const techElement = document.getElementById('tech');
+//   techElement.innerHTML = getTechnologyTemplate(Technologies);
+//
+// });
 
-setTimeout(function renderTechs() {
-  const techElement = document.getElementById('tech');
-  techElement.innerHTML = getTechnologyTemplate(Technologies);
-
-  const techButton = document.querySelector<HTMLButtonElement>('#tech-button');
-  setTechnologiesToggleListener(techButton, techElement);
-});
+const techElement = document.getElementById('tech');
+const techButton = document.querySelector<HTMLButtonElement>('#tech-button');
+setTechnologiesToggleListener(techButton, techElement);
 
 fetch(
   'https://api.stackexchange.com/2.2/users/13093310?order=desc&sort=reputation&site=stackoverflow',

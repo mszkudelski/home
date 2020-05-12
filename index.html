@@ -94,7 +94,7 @@
             Cześć, jestem Marek!
         </h2>
         <div class="page-header__row">
-            <img loading="lazy" class="page-header__img" src="assets/img/zdjęcie1-min.jpg" alt="Zdjęcie profilowe">
+            <img class="page-header__img" src="assets/img/zdjęcie1-min.jpg" alt="Zdjęcie profilowe">
             <div class="page-header__description">
                 <p>
                     Jestem developerem głównie w obszarach frontendu. Jestem inżynierem i pasjonatem programowania.
@@ -113,6 +113,7 @@
         <div class="content jobs">
             <h2 class="header"><span class="title">Doświadczenie</span></h2>
             <div class="jobs__list" id="jobs">
+                <%= htmlWebpackPlugin.options.jobs %>
             </div>
         </div>
     </section>
@@ -120,6 +121,7 @@
         <div class="tech content">
             <h2 class="header"><span class="title">Technologie</span></h2>
             <div class="tech__list" id="tech">
+                <%= htmlWebpackPlugin.options.tech %>
             </div>
             <button type="button" class="tech__button" id="tech-button">Zobacz więcej</button>
             <p class="tech__disclaimer">
@@ -173,7 +175,9 @@
                 </div>
                 <div class="social__row">
                     <span class="social__label">Blog FrontemDoJs.pl</span>
-                    <a rel="noopener" href="https://frontemdojs.pl" target="_blank" class="social__blog" id="blog" title="Blog FrontemDoJs.pl"></a>
+                    <a rel="noopener" href="https://frontemdojs.pl" target="_blank" class="social__blog" id="blog" title="Blog FrontemDoJs.pl">
+                        <img src="assets/img/blog.png" aria-hidden="true">
+                    </a>
                 </div>
                 <div class="social__row">
                     <div class="social__icon social__icon--mail">
