@@ -9,6 +9,7 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 import * as webpack from 'webpack';
 
@@ -36,7 +37,12 @@ const config: (env, argv) => webpack.Configuration = (
       {
         test: /\.s?css$/,
         use: [
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: process.env.HOST_PATH || '',
+            },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -80,6 +86,10 @@ const config: (env, argv) => webpack.Configuration = (
     new ImageminWebpWebpackPlugin(),
     new CopyPlugin([{ from: 'manifest.json' }, { from: 'assets/img/**/*' }]),
     new WorkboxPlugin.GenerateSW(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin()],
