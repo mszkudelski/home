@@ -14,11 +14,11 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const myIcon = new Image();
-myIcon.src = require(`../assets/img/blog.png`);
-myIcon.alt = 'Blog FrontemDoJS.pl link';
+const blogIcon = new Image();
+blogIcon.src = require(`../assets/img/blog.png`);
+blogIcon.alt = 'Blog FrontemDoJS.pl link';
 
-document.getElementById('blog').appendChild(myIcon);
+document.getElementById('blog').appendChild(blogIcon);
 
 const jobsElement = document.getElementById('jobs');
 jobsElement.innerHTML = getJobsTemplate(Jobs);
