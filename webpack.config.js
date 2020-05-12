@@ -44,7 +44,7 @@ module.exports = (env, argv) => ({
         ],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|ico)$/,
         use: [
           {
             loader: 'url-loader',
@@ -82,7 +82,10 @@ module.exports = (env, argv) => ({
       template: 'index.html',
     }),
     new ImageminWebpWebpackPlugin(),
-    new CopyPlugin([{ from: 'manifest.json', to: 'manifest.json' }]),
+    new CopyPlugin([
+      { from: 'manifest.json' },
+      { from: 'assets/img/favicon/*' },
+    ]),
     new WorkboxPlugin.GenerateSW(),
   ],
   optimization: {
