@@ -62,7 +62,7 @@ module.exports = (env, argv) => ({
         test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',
         options: {
-          name: 'fonts/[name].[ext]?[hash]',
+          name: 'fonts/[name].[hash].[ext]',
           publicPath: process.env.HOST_PATH || '/',
         },
       },
