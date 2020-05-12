@@ -57,7 +57,7 @@ const config: (env, argv) => webpack.Configuration = (
         test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',
         options: {
-          name: 'fonts/[name].[hash].[ext]',
+          name: 'fonts/[name].[ext]',
           publicPath: process.env.HOST_PATH || '/',
         },
       },
