@@ -1,0 +1,22 @@
+{
+  "name": "Szkudelski Marek",
+  "short_name": "Szkudelski",
+  "start_url": "https://szkudelski.dev/",
+  "theme_color": "#a5c3ff",
+  "background_color": "#3a5386",
+  "display": "standalone",
+  "splash_pages": null,
+  "icons": [
+    {
+      "src": "/img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "apple-touch-icon": "/img/apple-touch-icon.png"
+}
