@@ -53,21 +53,6 @@ const config: (env, argv) => webpack.Configuration = (
           'sass-loader',
         ],
       },
-      // {
-      //   test: /\.(png|jpg|gif|svg|ico)$/,
-      //   use: [
-      //     {
-      //       loader: 'url-loader',
-      //       options: {
-      //         limit: 20000,
-      //         name: '[name].[ext]',
-      //         useRelativePath: true,
-      //         outputPath: 'assets/img',
-      //         publicPath: '',
-      //       },
-      //     },
-      //   ],
-      // },
       {
         test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',

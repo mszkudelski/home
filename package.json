@@ -32,7 +32,6 @@
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.8.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "url-loader": "2",
     "webpack": "^4.42.1",
     "webpack-dev-server": "^3.10.3"
   },
