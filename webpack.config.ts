@@ -78,7 +78,7 @@ const config: (env, argv) => webpack.Configuration = (
       tech: getTechnologyTemplate(Technologies),
     }),
     new ImageminWebpWebpackPlugin(),
-    new CopyPlugin([{ from: 'manifest.json' }, { from: 'assets/img/*' }]),
+    new CopyPlugin([{ from: 'manifest.json' }, { from: 'assets/img/**/*' }]),
     new WorkboxPlugin.GenerateSW(),
   ],
   optimization: {
