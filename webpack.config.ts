@@ -1,3 +1,8 @@
+const { getJobsTemplate } = require('./src/partials/jobs');
+const { Jobs } = require('./src/constants/jobs');
+const { getTechnologyTemplate } = require('./src/partials/technologies');
+const { Technologies } = require('./src/constants/technologies.const');
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
@@ -5,7 +10,12 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-module.exports = (env, argv) => ({
+import * as webpack from 'webpack';
+
+const config: (env, argv) => webpack.Configuration = (
+  env,
+  argv: { mode?: 'production' | 'development' },
+) => ({
   entry: './src/index.ts',
   mode: argv.mode || 'development',
   devServer: {
@@ -43,21 +53,21 @@ module.exports = (env, argv) => ({
           'sass-loader',
         ],
       },
-      {
-        test: /\.(png|jpg|gif|svg|ico)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 20000,
-              name: '[name].[ext]',
-              useRelativePath: true,
-              outputPath: 'assets/img',
-              publicPath: '',
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.(png|jpg|gif|svg|ico)$/,
+      //   use: [
+      //     {
+      //       loader: 'url-loader',
+      //       options: {
+      //         limit: 20000,
+      //         name: '[name].[ext]',
+      //         useRelativePath: true,
+      //         outputPath: 'assets/img',
+      //         publicPath: '',
+      //       },
+      //     },
+      //   ],
+      // },
       {
         test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',
@@ -78,17 +88,17 @@ module.exports = (env, argv) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Custom template',
       template: 'index.html',
+      jobs: getJobsTemplate(Jobs),
+      tech: getTechnologyTemplate(Technologies),
     }),
     new ImageminWebpWebpackPlugin(),
-    new CopyPlugin([
-      { from: 'manifest.json' },
-      { from: 'assets/img/favicon/*' },
-    ]),
+    new CopyPlugin([{ from: 'manifest.json' }, { from: 'assets/img/*' }]),
     new WorkboxPlugin.GenerateSW(),
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin()],
   },
 });
+
+module.exports = config;
