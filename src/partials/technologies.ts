@@ -1,4 +1,4 @@
-import { Technology } from '../constants/technologies.const';
+import { Technologies, Technology } from '../constants/technologies.const';
 
 function getExperienceDots(experience: number): string {
   return new Array(5)
@@ -44,8 +44,13 @@ export function setTechnologiesToggleListener(
   techElement: HTMLElement,
 ) {
   let techElementShown = false;
+  let isFirstClick = true;
   techButton.addEventListener('click', () => {
-    if (techElementShown) {
+    if (isFirstClick) {
+      isFirstClick = false;
+      techElement.innerHTML = getTechnologyTemplate(Technologies);
+    }
+    if (techElement.style.height === 'auto') {
       techElement.style.height = '460px';
       techButton.innerText = 'Zobacz więcej';
     } else {

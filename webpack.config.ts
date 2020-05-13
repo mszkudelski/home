@@ -81,7 +81,7 @@ const config: (env, argv) => webpack.Configuration = (
     new HtmlWebpackPlugin({
       template: 'index.html',
       jobs: getJobsTemplate(Jobs),
-      tech: getTechnologyTemplate(Technologies),
+      tech: getTechnologyTemplate(Technologies.slice(0, 3)),
     }),
     new ImageminWebpWebpackPlugin(),
     new CopyPlugin([
