@@ -21,7 +21,7 @@ export function getTechnologyTemplate(technologies) {
     <div class="tech__card">
         <img class="tech__img" src="assets/img/${
           technology.logo
-        }" aria-hidden="true" alt="${technology.name}">
+        }.webp" aria-hidden="true" alt="${technology.name}">
         <div class="tech__img-tooltip">${technology.name}</div>
         <div class="experience">
             ${getExperienceDots(technology.experience)}

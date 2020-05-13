@@ -84,7 +84,11 @@ const config: (env, argv) => webpack.Configuration = (
       tech: getTechnologyTemplate(Technologies),
     }),
     new ImageminWebpWebpackPlugin(),
-    new CopyPlugin([{ from: 'manifest.json' }, { from: 'assets/img/**/*' }]),
+    new CopyPlugin([
+      { from: 'manifest.json' },
+      { from: 'assets/img/favicon/*' },
+      { from: 'assets/img/*.webp' },
+    ]),
     new WorkboxPlugin.GenerateSW(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
