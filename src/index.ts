@@ -25,9 +25,15 @@ fetch(
   });
 
 if (window.matchMedia('(min-width: 768px)').matches) {
-  document.getElementById('twitter').innerHTML = `
+  const twitterWidget = document.getElementById('twitter');
+  twitterWidget.innerHTML = `
     <a rel="noopener" class="twitter-timeline" href="https://twitter.com/MarekSzkudelski?ref_src=twsrc%5Etfw">Tweets by
         MarekSzkudelski</a>
-    <script defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   `;
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://platform.twitter.com/widgets.js';
+  script.setAttribute('charset', 'utf-8');
+  script.setAttribute('defer', 'true');
+  twitterWidget.appendChild(script);
 }
