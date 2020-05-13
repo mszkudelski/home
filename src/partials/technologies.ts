@@ -1,3 +1,5 @@
+import { Technology } from '../constants/technologies.const';
+
 function getExperienceDots(experience: number): string {
   return new Array(5)
     .fill(null)
@@ -13,7 +15,7 @@ function getExperienceDots(experience: number): string {
     );
 }
 
-export function getTechnologyTemplate(technologies) {
+export function getTechnologyTemplate(technologies: Technology[]) {
   return technologies.reduce(
     (html, technology) =>
       html +

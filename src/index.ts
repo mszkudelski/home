@@ -19,8 +19,15 @@ fetch(
   })
   .then((data) => {
     const { badge_counts, reputation, link } = data.items[0];
-
     document.getElementById('stack-overflow').innerHTML = `
         ${reputation} reputacji
     `;
   });
+
+if (window.matchMedia('(min-width: 768px)').matches) {
+  document.getElementById('twitter').innerHTML = `
+    <a rel="noopener" class="twitter-timeline" href="https://twitter.com/MarekSzkudelski?ref_src=twsrc%5Etfw">Tweets by
+        MarekSzkudelski</a>
+    <script defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  `;
+}
