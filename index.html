@@ -59,8 +59,6 @@
 
         gtag('config', 'UA-166000058-1');
     </script>
-
-    <link href="main.css" rel="preload" as="style">
 </head>
 <body>
 
@@ -98,7 +96,10 @@
             Cześć, jestem Marek!
         </h2>
         <div class="page-header__row">
-            <img class="page-header__img" src="assets/img/zdjęcie1-min.webp" alt="Zdjęcie profilowe">
+            <picture>
+                <source srcset="assets/img/profile-mobile.webp" media="(max-width: 768px)" />
+                <img class="page-header__img" src="assets/img/profile.webp" alt="Zdjęcie profilowe"/>
+            </picture>
             <div class="page-header__description">
                 <p>
                     Jestem developerem głównie w obszarach frontendu. Jestem inżynierem i pasjonatem programowania.
