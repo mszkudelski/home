@@ -2,7 +2,7 @@
   --primary: #a5c3ff;
   --dark: #3a5386;
   --accent: #daff8c;
-  --dark-accent: #6b8345;
+  --dark-accent: #0003ff;
   --light: #fff;
 }
 
@@ -128,5 +128,44 @@ footer {
 .source {
   &__link {
     @include link();
+  }
+}
+
+.private-life {
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  $img-size: 300px;
+  &__img {
+    width: $img-size;
+  }
+  &__description {
+    margin-left: 50px;
+    width: calc(100% - #{$img-size} - 50px);
+  }
+  &__link {
+    @include link();
+  }
+
+  @media (max-width: 900px) {
+    $img-size: 240px;
+    &__img {
+      width: $img-size;
+    }
+    &__description {
+      margin-left: 30px;
+      width: calc(100% - #{$img-size} - 30px);
+    }
+  }
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column-reverse;
+    }
+    &__description {
+      margin-left: 0;
+      width: 100%;
+    }
   }
 }

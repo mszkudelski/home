@@ -72,6 +72,12 @@
   &:hover {
     color: var(--primary);
   }
+  &--accent {
+    color: var(--dark-accent);
+    &:hover {
+      color: var(--accent);
+    }
+  }
 }
 
 @mixin loader($color: var(--dark)) {
