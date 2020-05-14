@@ -1,5 +1,7 @@
 import '../assets/styles/index.scss';
-import { setTechnologiesToggleListener } from './partials/technologies';
+import { HomeRender } from './home/home';
+import { MaterialsTemplate } from './materials/materials.template';
+import { MaterialsRender } from './materials/materials';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -7,33 +9,29 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const techElement = document.getElementById('tech');
-const techButton = document.querySelector<HTMLButtonElement>('#tech-button');
-setTechnologiesToggleListener(techButton, techElement);
+const routes: { route: string; name: string; render: Function }[] = [
+  { name: 'home', route: '/', render: HomeRender },
+  { name: 'materials', route: 'materials', render: MaterialsRender },
+];
 
-fetch(
-  'https://api.stackexchange.com/2.2/users/13093310?order=desc&sort=reputation&site=stackoverflow',
-)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    const { badge_counts, reputation, link } = data.items[0];
-    document.getElementById('stack-overflow').innerHTML = `
-        ${reputation} reputacji
-    `;
-  });
+const currentRoute = window.location.pathname;
 
-if (window.matchMedia('(min-width: 768px)').matches) {
-  const twitterWidget = document.getElementById('twitter');
-  twitterWidget.innerHTML = `
-    <a rel="noopener" class="twitter-timeline" href="https://twitter.com/MarekSzkudelski?ref_src=twsrc%5Etfw">Tweets by
-        MarekSzkudelski</a>
-  `;
-  const script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://platform.twitter.com/widgets.js';
-  script.setAttribute('charset', 'utf-8');
-  script.defer = true;
-  twitterWidget.appendChild(script);
-}
+console.log(currentRoute);
+const container: HTMLElement = document.querySelector('#container');
+
+routes.forEach((routeConfig) => {
+  const navButtons = document.querySelectorAll(`[route="${routeConfig.name}"]`);
+  if (navButtons.length) {
+    navButtons.forEach((button) =>
+      button.addEventListener('click', (event) => {
+        console.log(routeConfig);
+        routeConfig.render(container);
+      }),
+    );
+  }
+  console.log(currentRoute, routeConfig.route);
+  if (currentRoute === routeConfig.route) {
+    HomeRender(container);
+    // import(/* webpackChunkName: "home" */ `${routeConfig.name}.js`);
+  }
+});

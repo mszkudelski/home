@@ -1,7 +1,7 @@
-const { getJobsTemplate } = require('./src/partials/jobs');
-const { Jobs } = require('./src/constants/jobs');
-const { getTechnologyTemplate } = require('./src/partials/technologies');
-const { Technologies } = require('./src/constants/technologies.const');
+const { getJobsTemplate } = require('./src/home/partials/jobs');
+const { Jobs } = require('./src/home/constants/jobs');
+const { getTechnologyTemplate } = require('./src/home/partials/technologies');
+const { Technologies } = require('./src/home/constants/technologies.const');
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -17,7 +17,9 @@ const config: (env, argv) => webpack.Configuration = (
   env,
   argv: { mode?: 'production' | 'development' },
 ) => ({
-  entry: './src/index.ts',
+  entry: {
+    index: './src/index.ts',
+  },
   mode: argv.mode || 'development',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -73,7 +75,8 @@ const config: (env, argv) => webpack.Configuration = (
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist/'),
     publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist/'),
   },
@@ -97,6 +100,9 @@ const config: (env, argv) => webpack.Configuration = (
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin()],
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
   },
 });
 
