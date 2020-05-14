@@ -10,6 +10,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 import * as webpack from 'webpack';
 
@@ -19,6 +20,8 @@ const config: (env, argv) => webpack.Configuration = (
 ) => ({
   entry: {
     index: './src/index.ts',
+    home: './src/home/home.ts',
+    materials: './src/materials/materials.ts',
   },
   mode: argv.mode || 'development',
   devServer: {
@@ -81,10 +84,12 @@ const config: (env, argv) => webpack.Configuration = (
     publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist/'),
   },
   plugins: [
+    // new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',
       jobs: getJobsTemplate(Jobs),
       tech: getTechnologyTemplate(Technologies.slice(0, 3)),
+      chunks: ['index'],
     }),
     new ImageminWebpWebpackPlugin(),
     new CopyPlugin([

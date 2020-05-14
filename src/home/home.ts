@@ -1,7 +1,7 @@
 import { setTechnologiesToggleListener } from './partials/technologies';
 import { HomeTemplate } from './home.template';
 
-export function HomeRender(container: HTMLElement) {
+window['__routes'].home = function(container: HTMLElement) {
   container.innerHTML = HomeTemplate;
 
   const techElement = document.getElementById('tech');
@@ -34,4 +34,4 @@ export function HomeRender(container: HTMLElement) {
     script.defer = true;
     twitterWidget.appendChild(script);
   }
-}
+};

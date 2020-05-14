@@ -1,7 +1,6 @@
 import '../assets/styles/index.scss';
-import { HomeRender } from './home/home';
-import { MaterialsTemplate } from './materials/materials.template';
-import { MaterialsRender } from './materials/materials';
+
+window['__routes'] = {};
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -9,29 +8,50 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const routes: { route: string; name: string; render: Function }[] = [
-  { name: 'home', route: '/', render: HomeRender },
-  { name: 'materials', route: 'materials', render: MaterialsRender },
-];
+const routes: {
+  route: string;
+  name: string;
+  render?: Function;
+  loaded?: boolean;
+}[] = [{ name: 'home', route: '/' }, { name: 'materials', route: 'materials' }];
 
 const currentRoute = window.location.pathname;
 
-console.log(currentRoute);
 const container: HTMLElement = document.querySelector('#container');
 
+function loadPage(routeConfig) {
+  if (!routeConfig.loaded) {
+    const script = document.createElement('script');
+    script.onload = function() {
+      routeConfig.loaded = true;
+      function check() {
+        if (typeof window['__routes'][routeConfig.name] === 'function') {
+          window['__routes'][routeConfig.name](container);
+        } else {
+          setTimeout(check, 50);
+        }
+      }
+      check();
+    };
+    script.src = `${routeConfig.name}.bundle.js`;
+
+    document.body.appendChild(script);
+  } else {
+    window['__routes'][routeConfig.name](container);
+  }
+}
 routes.forEach((routeConfig) => {
   const navButtons = document.querySelectorAll(`[route="${routeConfig.name}"]`);
   if (navButtons.length) {
     navButtons.forEach((button) =>
       button.addEventListener('click', (event) => {
-        console.log(routeConfig);
-        routeConfig.render(container);
+        loadPage(routeConfig);
+        window.history.pushState('asd', 'Title', routeConfig.route);
       }),
     );
   }
-  console.log(currentRoute, routeConfig.route);
+
   if (currentRoute === routeConfig.route) {
-    HomeRender(container);
-    // import(/* webpackChunkName: "home" */ `${routeConfig.name}.js`);
+    loadPage(routeConfig);
   }
 });
