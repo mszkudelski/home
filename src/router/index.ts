@@ -9,15 +9,14 @@ function loadPage(routeConfig: Route, container: HTMLElement) {
     const script = document.createElement('script');
     script.onload = function() {
       routeConfig.loaded = true;
-      function check() {
+      (function check() {
         if (typeof window['__routes'][routeConfig.name] === 'function') {
           window['__routes'][routeConfig.name](container);
         } else {
           // waiting for loading script
           setTimeout(check, 50);
         }
-      }
-      check();
+      })();
     };
     script.src = `${routeConfig.name}.bundle.js`;
 
@@ -31,7 +30,7 @@ function registerRouteLinks(routeConfig: Route, container: HTMLElement) {
   const navButtons = document.querySelectorAll(`[route="${routeConfig.name}"]`);
   if (navButtons.length) {
     navButtons.forEach((button) =>
-      button.addEventListener('click', (event) => {
+      button.addEventListener('click', () => {
         loadPage(routeConfig, container);
         window.history.pushState('asd', 'Title', routeConfig.route);
       }),
