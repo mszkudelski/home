@@ -1,8 +1,17 @@
-import { setTechnologiesToggleListener } from './partials/technologies';
+import {
+  getTechnologyTemplate,
+  setTechnologiesToggleListener,
+} from './partials/technologies';
 import { HomeTemplate } from './home.template';
+import { getJobsTemplate } from './partials/jobs';
+import { Jobs } from './constants/jobs';
+import { Technologies } from './constants/technologies.const';
 
 window['__routes'].home = function(container: HTMLElement) {
-  container.innerHTML = HomeTemplate;
+  container.innerHTML = HomeTemplate(
+    getJobsTemplate(Jobs),
+    getTechnologyTemplate(Technologies.slice(0, 3)),
+  );
 
   const techElement = document.getElementById('tech');
   const techButton = document.querySelector<HTMLButtonElement>('#tech-button');

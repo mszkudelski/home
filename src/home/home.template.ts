@@ -1,4 +1,4 @@
-export const HomeTemplate = `
+export const HomeTemplate = (jobs: string, tech: string) => `
     <header class="page-header section">
         <div class="content">
             <h2 class="page-header__title">
@@ -27,7 +27,7 @@ export const HomeTemplate = `
         <div class="content jobs">
             <h2 class="header"><span class="title">Doświadczenie</span></h2>
             <div class="jobs__list" id="jobs">
-                <%= htmlWebpackPlugin.options.jobs %>
+                ${jobs}
             </div>
         </div>
     </section>
@@ -35,7 +35,7 @@ export const HomeTemplate = `
         <div class="tech content">
             <h2 class="header"><span class="title">Technologie</span></h2>
             <div class="tech__list" id="tech">
-                <%= htmlWebpackPlugin.options.tech %>
+                ${tech}
             </div>
             <button type="button" class="tech__button" id="tech-button">Zobacz więcej</button>
             <p class="tech__disclaimer">
