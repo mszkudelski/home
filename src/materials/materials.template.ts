@@ -1,1 +1,6 @@
-export const MaterialsTemplate = `materials view works!`;
+export const MaterialsTemplate = `
+  <main>
+    <section class="articles" id="articles">
+    </section>
+  </main> 
+`;

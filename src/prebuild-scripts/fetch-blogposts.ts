@@ -5,6 +5,18 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
+function getArticleTemplate(article) {
+  return `
+        <article class="article">
+          <h2 class="article__title">${article.title}</h2>
+          <div class="article__date">${article.date}</div>
+          <div class="article__advancement">${article.advancement}</div>
+          <div class="article__category">${article.category}</div>
+          <div class="article__description">${article.description}</div>
+        </article> 
+    `;
+}
+
 https
   .get('https://frontemdojs.pl', (response: IncomingMessage) => {
     let data = '';
@@ -40,9 +52,12 @@ https
         .find('.advancement-level')
         .each((i, a) => (arr[i].advancement = a.children[0].data.trim()));
 
-      const myArticles = arr.filter((a) => a.author === 'Marek');
+      const myArticles = arr
+        .filter((a) => a.author === 'Marek')
+        .map((article) => getArticleTemplate(article))
+        .join('');
 
-      const filePath = path.resolve(__dirname, '../../dist/articles.json');
+      const filePath = path.resolve(__dirname, '../../dist/articles.html');
 
       fs.writeFile(
         filePath,
