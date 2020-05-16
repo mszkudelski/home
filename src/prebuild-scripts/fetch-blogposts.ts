@@ -6,13 +6,20 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
+const categoryLogos = {
+  angular: 'ng',
+  typescript: 'ts',
+  javascript: 'js',
+};
+
 function getArticleTemplate(article: Article) {
   return `
         <article class="article">
           <h2 class="article__title title">${article.title}</h2>
           <div class="article__date">${article.date}</div>
-          <div class="article__advancement">${article.advancement}</div>
-          <div class="article__category">${article.category}</div>
+          <div class="article__category"><img src="assets/img/${
+            categoryLogos[article.category.toLocaleLowerCase()]
+          }-logo.webp" alt="">${article.category}</div>
           <div class="article__description">${article.description}</div>
         </article> 
     `;
@@ -61,15 +68,6 @@ https
         .each(
           (index, articleElem) =>
             (fetchedArticles[index].date = articleElem.children[0].data),
-        );
-
-      articlesElements
-        .find('.advancement-level')
-        .each(
-          (index, articleElem) =>
-            (fetchedArticles[
-              index
-            ].advancement = articleElem.children[0].data.trim()),
         );
 
       const myArticles: Article[] = fetchedArticles.filter(

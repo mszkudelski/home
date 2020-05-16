@@ -80,6 +80,14 @@
   }
 }
 
+@mixin card() {
+  box-shadow: 0 0 23px -8px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  padding: 20px 26px;
+  background-color: var(--light);
+  font-size: 0.95em;
+}
+
 @mixin loader($color: var(--dark)) {
   // lds-roller code source: https://loading.io/css/
   .lds-roller {
