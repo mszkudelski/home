@@ -27,6 +27,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn install
+    - run: yarn compress:imgs
     - run: HOST_PATH=https://mszkudelski.github.io/home/ yarn build
     - run: yarn fetch:posts
       env:
