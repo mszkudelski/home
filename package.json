@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env TS_NODE_PROJECT=\"webpack-tsconfig.json\" webpack --watch | webpack-dev-server",
-    "build": "yarn compress:imgs && cross-env TS_NODE_PROJECT=\"webpack-tsconfig.json\" webpack --mode production",
+    "build": "yarn compress:imgs && cross-env TS_NODE_PROJECT=\"webpack-tsconfig.json\" webpack --mode production && yarn fetch:posts",
     "compress:imgs": "ts-node src/prebuild-scripts/compress-images.ts",
     "start:prod": "cross-env TS_NODE_PROJECT=\"webpack-tsconfig.json\" webpack --watch --mode production | webpack-dev-server",
     "fetch:posts": "ts-node src/prebuild-scripts/fetch-blogposts.ts"
