@@ -9,8 +9,8 @@ if ('serviceWorker' in navigator) {
 }
 
 const routes: Route[] = [
-  { name: 'home', route: '' },
-  { name: 'materials', route: 'materials' },
+  { name: 'home', route: '', title: 'Strona główna' },
+  { name: 'materials', route: 'materials', title: 'Materiały' },
 ];
 
 registerRoutes(routes, '#container');

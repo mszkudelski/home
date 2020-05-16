@@ -1,6 +1,12 @@
 import { Route } from './route.interface';
 
-const currentRoute = window.location.pathname;
+function getCurrentRoute(): string {
+  return window.location.pathname;
+}
+
+function isRouteCurrent(route: string): boolean {
+  return getCurrentRoute() === '/' + route;
+}
 
 window['__routes'] = {};
 
@@ -30,13 +36,32 @@ function loadPage(routeConfig: Route, container: HTMLElement) {
   }
 }
 
+function changeCurrentRoute(
+  routeConfig: Route,
+  container: HTMLElement,
+  withPushState = true,
+) {
+  loadPage(routeConfig, container);
+  if (withPushState) {
+    window.history.pushState(
+      {
+        route: routeConfig.route,
+      },
+      routeConfig.title,
+      '/' + routeConfig.route,
+    );
+  }
+  document.title = 'Szkudelski Marek - ' + routeConfig.title;
+}
+
 function registerRouteLinks(routeConfig: Route, container: HTMLElement) {
   const navButtons = document.querySelectorAll(`[route="${routeConfig.name}"]`);
   if (navButtons.length) {
     navButtons.forEach((button) =>
       button.addEventListener('click', () => {
-        loadPage(routeConfig, container);
-        window.history.pushState('asd', 'Title', routeConfig.route);
+        if (!isRouteCurrent(routeConfig.route)) {
+          changeCurrentRoute(routeConfig, container);
+        }
       }),
     );
   }
@@ -53,8 +78,13 @@ export function registerRoutes(routes: Route[], containerSelector: string) {
   routes.forEach((routeConfig) => {
     registerRouteLinks(routeConfig, container);
 
-    if (currentRoute === '/' + routeConfig.route) {
+    if (isRouteCurrent(routeConfig.route)) {
       loadPage(routeConfig, container);
     }
+  });
+
+  window.addEventListener('popstate', (event: PopStateEvent) => {
+    const newRoute = routes.find((route) => route.route === event.state.route);
+    changeCurrentRoute(newRoute, container, false);
   });
 }

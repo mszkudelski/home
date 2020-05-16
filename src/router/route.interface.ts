@@ -3,4 +3,5 @@ export interface Route {
   name: string;
   render?: Function;
   loaded?: boolean;
+  title: string;
 }
