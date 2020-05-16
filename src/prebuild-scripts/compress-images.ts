@@ -3,5 +3,5 @@ const webp = require('imagemin-webp');
 
 imagemin(['assets/img/*.{jpg,png}'], {
   destination: 'assets/img',
-  plugins: [webp({ quality: 60 })],
+  plugins: [webp({ quality: 100 })],
 });
