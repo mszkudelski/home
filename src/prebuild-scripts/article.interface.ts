@@ -4,5 +4,5 @@ export interface Article {
   description: string;
   date: string;
   category: string;
-  advancement: string;
+  link: string;
 }

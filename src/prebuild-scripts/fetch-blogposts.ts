@@ -15,7 +15,11 @@ const categoryLogos = {
 function getArticleTemplate(article: Article) {
   return `
         <article class="article">
-          <h2 class="article__title title">${article.title}</h2>
+          <h2 class="article__title title">
+            <a rel="noopener" target="_blank" href="${article.link}">${
+    article.title
+  }</a>
+          </h2>
           <div class="article__date">${article.date}</div>
           <div class="article__category"><img src="assets/img/${
             categoryLogos[article.category.toLocaleLowerCase()]
@@ -68,6 +72,13 @@ https
         .each(
           (index, articleElem) =>
             (fetchedArticles[index].date = articleElem.children[0].data),
+        );
+
+      articlesElements
+        .find('.read-more')
+        .each(
+          (index, articleElem) =>
+            (fetchedArticles[index].link = articleElem.attribs.href),
         );
 
       const myArticles: Article[] = fetchedArticles.filter(
