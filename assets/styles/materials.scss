@@ -3,6 +3,9 @@
 
 .content {
   padding: 0 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .article {
@@ -11,6 +14,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 20px;
+  max-width: 600px;
+  padding: 20px 18px;
   &__title {
     @extend .title;
     width: 100%;
@@ -21,8 +26,9 @@
     margin-top: 10px;
   }
   &__date {
-    width: 100%;
-    margin-bottom: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
   }
   &__category {
     display: flex;
@@ -31,5 +37,8 @@
       width: 24px;
       margin-right: 10px;
     }
+  }
+  @media (min-width: 360px) {
+    padding: 20px 26px;
   }
 }
