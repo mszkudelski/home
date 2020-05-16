@@ -19,8 +19,12 @@ function loadPage(routeConfig: Route, container: HTMLElement) {
       })();
     };
     script.src = `${routeConfig.name}.bundle.js`;
+    const styles = document.createElement('link');
+    styles.href = `${routeConfig.name}.css`;
+    styles.rel = 'stylesheet';
 
     document.body.appendChild(script);
+    document.body.appendChild(styles);
   } else {
     window['__routes'][routeConfig.name](container);
   }
@@ -49,7 +53,7 @@ export function registerRoutes(routes: Route[], containerSelector: string) {
   routes.forEach((routeConfig) => {
     registerRouteLinks(routeConfig, container);
 
-    if (currentRoute === routeConfig.route) {
+    if (currentRoute === '/' + routeConfig.route) {
       loadPage(routeConfig, container);
     }
   });

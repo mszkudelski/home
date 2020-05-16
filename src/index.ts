@@ -9,7 +9,7 @@ if ('serviceWorker' in navigator) {
 }
 
 const routes: Route[] = [
-  { name: 'home', route: '/' },
+  { name: 'home', route: '' },
   { name: 'materials', route: 'materials' },
 ];
 
