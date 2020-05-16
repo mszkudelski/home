@@ -90,8 +90,6 @@ const config: (env, argv) => webpack.Configuration = (
     // new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',
-      jobs: getJobsTemplate(Jobs),
-      tech: getTechnologyTemplate(Technologies.slice(0, 3)),
       chunks: ['index'],
     }),
     new ImageminWebpWebpackPlugin(),

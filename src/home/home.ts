@@ -6,6 +6,7 @@ import { HomeTemplate } from './home.template';
 import { getJobsTemplate } from './partials/jobs';
 import { Jobs } from './constants/jobs';
 import { Technologies } from './constants/technologies.const';
+import '../../assets/styles/home.scss';
 
 window['__routes'].home = function(container: HTMLElement) {
   container.innerHTML = HomeTemplate(

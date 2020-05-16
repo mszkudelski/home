@@ -15,7 +15,7 @@ export const HomeTemplate = (jobs: string, tech: string) => `
                         Współtworzę także blog FrontemDoJs.pl.
                     </p>
                     <p>
-                        Będą tutaj zgromadzone wszelkie materiały ze mną związane takie jak wpisy na blogach mojego autorstwa.
+                        Będą tutaj zgromadzone wszelkie <a class="link" route="materials">materiały</a> ze mną związane takie jak wpisy na blogach mojego autorstwa.
                     </p>
                 </div>
             </div>

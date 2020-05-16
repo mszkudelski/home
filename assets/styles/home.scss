@@ -1,0 +1,103 @@
+@import 'mixins';
+@import 'partials/experience';
+@import 'partials/technologies';
+@import 'partials/jobs';
+@import 'partials/social';
+
+@include content;
+
+.page-header {
+  $background-color: var(--dark);
+  background-color: $background-color;
+  padding: 50px 0;
+  color: var(--light);
+
+  &__title {
+    @include title();
+    margin-bottom: 20px;
+  }
+
+  &__row {
+    display: flex;
+    position: relative;
+  }
+
+  $img-size: 340px;
+
+  &__description {
+    margin-left: calc(#{$img-size} + 50px);
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+
+  &__img {
+    max-width: $img-size;
+    border-radius: calc(#{$img-size} / 2);
+    position: absolute;
+    border: 2px solid $background-color;
+  }
+
+  .link {
+    @include link();
+  }
+
+  @media (max-width: 768px) {
+    &__title {
+      text-align: center;
+    }
+    &__row {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__img {
+      position: relative;
+      border: none;
+    }
+    &__description {
+      margin-left: 0;
+    }
+    &__img {
+      max-width: 240px;
+      border-radius: calc(240px / 2);
+    }
+  }
+}
+
+.private-life {
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  $img-size: 300px;
+  &__img {
+    width: $img-size;
+  }
+  &__description {
+    margin-left: 50px;
+    width: calc(100% - #{$img-size} - 50px);
+  }
+  &__link {
+    @include link();
+  }
+
+  @media (max-width: 900px) {
+    $img-size: 240px;
+    &__img {
+      width: $img-size;
+    }
+    &__description {
+      margin-left: 30px;
+      width: calc(100% - #{$img-size} - 30px);
+    }
+  }
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column-reverse;
+    }
+    &__description {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}

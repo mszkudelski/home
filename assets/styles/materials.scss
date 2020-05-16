@@ -1,7 +1,7 @@
 @import 'mixins';
 @include content();
 
-.content {
+.articles .content {
   padding: 0 14px;
   display: flex;
   align-items: center;
