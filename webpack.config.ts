@@ -1,8 +1,3 @@
-const { getJobsTemplate } = require('./src/home/partials/jobs');
-const { Jobs } = require('./src/home/constants/jobs');
-const { getTechnologyTemplate } = require('./src/home/partials/technologies');
-const { Technologies } = require('./src/home/constants/technologies.const');
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
@@ -10,7 +5,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 import * as webpack from 'webpack';
 
@@ -87,7 +81,6 @@ const config: (env, argv) => webpack.Configuration = (
     publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist/'),
   },
   plugins: [
-    // new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',
       chunks: ['index'],
@@ -106,9 +99,6 @@ const config: (env, argv) => webpack.Configuration = (
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin()],
-    // splitChunks: {
-    //   chunks: 'all',
-    // },
   },
 });
 
