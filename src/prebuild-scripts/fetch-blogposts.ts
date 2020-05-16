@@ -8,7 +8,7 @@ const path = require('path');
 function getArticleTemplate(article) {
   return `
         <article class="article">
-          <h2 class="article__title">${article.title}</h2>
+          <h2 class="article__title title">${article.title}</h2>
           <div class="article__date">${article.date}</div>
           <div class="article__advancement">${article.advancement}</div>
           <div class="article__category">${article.category}</div>
@@ -52,17 +52,15 @@ https
         .find('.advancement-level')
         .each((i, a) => (arr[i].advancement = a.children[0].data.trim()));
 
-      const myArticles = arr
-        .filter((a) => a.author === 'Marek')
-        .map((article) => getArticleTemplate(article))
-        .join('');
+      const myArticles = arr.filter((a) => a.author === 'Marek');
 
       const filePath = path.resolve(__dirname, '../../dist/articles.html');
-
+      fs.openSync(filePath, 'w');
       fs.writeFile(
         filePath,
-        JSON.stringify(myArticles),
-        { flag: 'wx' },
+        JSON.stringify(
+          myArticles.map((article) => getArticleTemplate(article)).join(''),
+        ),
         function(err) {
           if (err) return console.log(err);
           console.log(
