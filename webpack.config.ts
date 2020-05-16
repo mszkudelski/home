@@ -30,6 +30,9 @@ const config: (env, argv) => webpack.Configuration = (
     watchContentBase: true,
     hot: true,
     port: 8080,
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
   devtool: argv.mode === 'production' ? false : 'source-map',
   module: {
