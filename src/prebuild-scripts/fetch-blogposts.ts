@@ -1,11 +1,12 @@
 import { IncomingMessage } from 'http';
 import * as cheerio from 'cheerio';
+import { Article } from './article.interface';
 
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-function getArticleTemplate(article) {
+function getArticleTemplate(article: Article) {
   return `
         <article class="article">
           <h2 class="article__title title">${article.title}</h2>
@@ -25,44 +26,67 @@ https
       data += chunk;
     });
     response.on('end', () => {
-      const arr = [];
-      const articles = cheerio.load(data)('article');
+      const fetchedArticles: Partial<Article>[] = [];
+      const articlesElements = cheerio.load(data)('article');
 
-      articles
+      articlesElements
         .find('.entry-title a')
-        .each((_, a) => arr.push({ title: a.children[0].data }));
+        .each((_, articleElem) =>
+          fetchedArticles.push({ title: articleElem.children[0].data }),
+        );
 
-      articles
+      articlesElements
         .find('.entry-content p')
-        .each((i, a) => (arr[i].description = a.children[0].data));
+        .each(
+          (index, articleElem) =>
+            (fetchedArticles[index].description = articleElem.children[0].data),
+        );
 
-      articles
+      articlesElements
         .find('.author a')
-        .each((i, a) => (arr[i].author = a.children[0].data));
+        .each(
+          (index, articleElem) =>
+            (fetchedArticles[index].author = articleElem.children[0].data),
+        );
 
-      articles
+      articlesElements
         .find('.home__catHref')
-        .each((i, a) => (arr[i].category = a.children[0].data));
+        .each(
+          (index, articleElem) =>
+            (fetchedArticles[index].category = articleElem.children[0].data),
+        );
 
-      articles
+      articlesElements
         .find('.entry-date.published')
-        .each((i, a) => (arr[i].date = a.children[0].data));
+        .each(
+          (index, articleElem) =>
+            (fetchedArticles[index].date = articleElem.children[0].data),
+        );
 
-      articles
+      articlesElements
         .find('.advancement-level')
-        .each((i, a) => (arr[i].advancement = a.children[0].data.trim()));
+        .each(
+          (index, articleElem) =>
+            (fetchedArticles[
+              index
+            ].advancement = articleElem.children[0].data.trim()),
+        );
 
-      const myArticles = arr.filter((a) => a.author === 'Marek');
+      const myArticles: Article[] = fetchedArticles.filter(
+        (article) => article.author === 'Marek',
+      ) as Article[];
 
       const filePath = path.resolve(__dirname, '../../dist/articles.html');
       fs.openSync(filePath, 'w');
       fs.writeFile(
         filePath,
         JSON.stringify(
-          myArticles.map((article) => getArticleTemplate(article)).join(''),
+          myArticles
+            .map((article: Article) => getArticleTemplate(article))
+            .join(''),
         ),
         function(err) {
-          if (err) return console.log(err);
+          if (err) return console.error(err);
           console.log(
             `Articles (${myArticles.length}) were saved to file: ${filePath}`,
           );
