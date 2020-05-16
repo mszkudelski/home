@@ -102,4 +102,10 @@ const config: (env, argv) => webpack.Configuration = (
   },
 });
 
+new webpack.DefinePlugin({
+  'process.env': {
+    HOST_PATH: JSON.stringify(process.env.HOST_PATH || ''),
+  },
+});
+
 module.exports = config;
