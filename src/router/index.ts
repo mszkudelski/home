@@ -24,9 +24,10 @@ function loadPage(routeConfig: Route, container: HTMLElement) {
         }
       })();
     };
-    script.src = `${routeConfig.name}.bundle.js`;
+    script.src =
+      (process.env.HOST_PATH || '') + `${routeConfig.name}.bundle.js`;
     const styles = document.createElement('link');
-    styles.href = `${routeConfig.name}.css`;
+    styles.href = (process.env.HOST_PATH || '') + `${routeConfig.name}.css`;
     styles.rel = 'stylesheet';
 
     document.body.appendChild(script);
