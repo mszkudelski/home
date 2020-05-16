@@ -69,7 +69,7 @@
     flex-wrap: wrap;
     align-items: center;
   }
-  $img-size: 300px;
+  $img-size: 450px;
   &__img {
     width: $img-size;
   }
@@ -82,13 +82,8 @@
   }
 
   @media (max-width: 900px) {
-    $img-size: 240px;
-    &__img {
-      width: $img-size;
-    }
     &__description {
       margin-left: 30px;
-      width: calc(100% - #{$img-size} - 30px);
     }
   }
   @media (max-width: 768px) {

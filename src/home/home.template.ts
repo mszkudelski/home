@@ -101,19 +101,16 @@ export const HomeTemplate = (jobs: string, tech: string) => `
     </section>
     <section class="section private-life">
         <div class="content">
-            <picture>
-                <source srcset="assets/img/profile-mobile.webp" media="(max-width: 768px)" />
-                <img class="private-life__img" src="assets/img/profile.webp" alt="Zdjęcie profilowe"/>
-            </picture>
+            <img class="private-life__img" src="assets/img/family.webp" alt="Zdjęcie z rodziną"/>
             <div class="private-life__description">
             <h2 class="header"><span class="title">Życie osobiste</span></h2>
                 <p>
                     Pomijając życia zawodowe jestem też mężem i ojcem, a moją rodzinę możecie zobaczyć na tym zdjęciu :)
-                    W wolnym czasie lubię pograć na gitarze, w szachy (zapraszam na <a class="private-life__link private-life__link--accent" href="https://www.chess.com/member/maszkud" rel="noopener">partię</a>) albo w tenisa.
+                    W wolnym czasie lubię pograć na gitarze, w szachy (zapraszam na <a class="private-life__link private-life__link--accent" href="https://www.chess.com/member/maszkud" rel="noopener" target="_blank">partię</a> :) ) albo w tenisa.
                 </p>
                 <p>
-                    Lubię czytać wartościowe książki, a te które miały na mnie większy wpływ to na przykład:
-                    "Dzikie serce" John'a Eldredge'a albo "Tajniki żonglerki" Pat'a Gelsinger'a.
+                    Lubię czytać wartościowe książki, a te które miały na mnie największy wpływ to na przykład:
+                    "Dzikie serce" John'a Eldredge'a oraz "Tajniki żonglerki" Pat'a Gelsinger'a.
                 </p>
             </div>
         </div>
