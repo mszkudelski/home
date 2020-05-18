@@ -42,6 +42,20 @@ body {
   background-color: var(--primary);
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 10;
+}
+
+.navbar,
+.footer {
+  flex: 1;
+}
+
 * {
   box-sizing: border-box;
 }
