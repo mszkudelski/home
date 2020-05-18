@@ -86,7 +86,7 @@ export const HomeTemplate = (jobs: string, tech: string) => `
                 </div>
                 <div class="social__row">
                     <span class="social__label">Blog FrontemDoJs.pl</span>
-                    <a rel="noopener" href="https://frontemdojs.pl" target="_blank" class="social__blog" id="blog" title="Blog FrontemDoJs.pl">
+                    <a rel="noopener" href="https://frontemdojs.pl" target="_blank" class="social__blog" id="blog" title="Blog FrontemDoJs.pl" aria-label="Link do bloga FrontemDoJs.pl">
                         <img src="assets/img/blog.webp" aria-hidden="true">
                     </a>
                 </div>
