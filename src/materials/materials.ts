@@ -8,5 +8,7 @@ window['__routes'].materials = function(container: HTMLElement) {
 
   fetch('articles.html')
     .then((response) => response.json())
-    .then((articlesList) => (articlesElement.innerHTML = articlesList));
+    .then((articlesList) => {
+      articlesElement.innerHTML = articlesList;
+    });
 };
