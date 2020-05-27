@@ -27,7 +27,7 @@ function loadPage(routeConfig: Route, container: HTMLElement) {
     // script.src =
     //   (process.env.HOST_PATH || '') + `${routeConfig.name}.bundle.js`;
 
-    import(`/${routeConfig.name}.bundle.mjs`).then(console.log);
+    import(`./${routeConfig.name}.bundle.js`).then(console.log);
 
     const styles = document.createElement('link');
     styles.href = (process.env.HOST_PATH || '') + `${routeConfig.name}.css`;
