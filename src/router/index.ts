@@ -12,25 +12,28 @@ window['__routes'] = {};
 
 function loadPage(routeConfig: Route, container: HTMLElement) {
   if (!routeConfig.loaded) {
-    const script = document.createElement('script');
-    script.onload = function() {
-      routeConfig.loaded = true;
-      (function check() {
-        if (typeof window['__routes'][routeConfig.name] === 'function') {
-          window['__routes'][routeConfig.name](container);
-        } else {
-          // waiting for loading script
-          setTimeout(check, 50);
-        }
-      })();
-    };
-    script.src =
-      (process.env.HOST_PATH || '') + `${routeConfig.name}.bundle.js`;
+    // const script = document.createElement('script');
+    // script.onload = function() {
+    //   routeConfig.loaded = true;
+    //   (function check() {
+    //     if (typeof window['__routes'][routeConfig.name] === 'function') {
+    //       window['__routes'][routeConfig.name](container);
+    //     } else {
+    //       // waiting for loading script
+    //       setTimeout(check, 50);
+    //     }
+    //   })();
+    // };
+    // script.src =
+    //   (process.env.HOST_PATH || '') + `${routeConfig.name}.bundle.js`;
+
+    import(`/${routeConfig.name}.bundle.mjs`).then(console.log);
+
     const styles = document.createElement('link');
     styles.href = (process.env.HOST_PATH || '') + `${routeConfig.name}.css`;
     styles.rel = 'stylesheet';
 
-    document.body.appendChild(script);
+    // document.body.appendChild(script);
     document.body.appendChild(styles);
   } else {
     window['__routes'][routeConfig.name](container);

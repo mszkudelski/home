@@ -1,7 +1,7 @@
 import { MaterialsTemplate } from './materials.template';
 import '../../assets/styles/materials.scss';
 
-window['__routes'].materials = function(container: HTMLElement) {
+export default function(container: HTMLElement) {
   container.innerHTML = MaterialsTemplate;
 
   const articlesElement = document.querySelector('#articles');
@@ -11,4 +11,4 @@ window['__routes'].materials = function(container: HTMLElement) {
     .then((articlesList) => {
       articlesElement.innerHTML = articlesList;
     });
-};
+}
