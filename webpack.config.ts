@@ -17,6 +17,15 @@ const config: (env, argv) => webpack.Configuration = (
     home: './src/home/home.ts',
     materials: './src/materials/materials.ts',
   },
+  output: {
+    filename: (pathData) => {
+      return pathData.chunk.name === 'index'
+        ? '[name].bundle.js'
+        : '[name].bundle.mjs';
+    },
+    path: path.resolve(__dirname, 'dist/'),
+    publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist/'),
+  },
   mode: argv.mode || 'development',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -73,12 +82,6 @@ const config: (env, argv) => webpack.Configuration = (
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-  },
-  output: {
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist/'),
-    publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist/'),
   },
   plugins: [
     new HtmlWebpackPlugin({
