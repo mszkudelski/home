@@ -11,11 +11,11 @@ export const HomeTemplate = (jobs: string, tech: string) => `
                 </picture>
                 <div class="page-header__description">
                     <p>
-                        Jestem developerem głównie w obszarach frontendu. Jestem inżynierem i pasjonatem programowania.
-                        Współtworzę także blog FrontemDoJs.pl.
+                        Jestem developerem głównie w obszarach frontendu, ale zdarza mi się również rozwijać aplikacje serwerowe. Od wielu lat pasjonuję się programowaniem.
+                        Współtworzę także blog FrontemDoJs.pl. Lubię uczyć się nowych rzeczy i nie pozostawiać pytań bez odpowiedzi.
                     </p>
                     <p>
-                        Będą tutaj zgromadzone wszelkie <a class="link" route="materials">materiały</a> ze mną związane takie jak wpisy na blogach mojego autorstwa.
+                        Będą tutaj zgromadzone wszelkie <a class="link" route="materials">materiały</a> ze mną związane takie jak publikacje na blogach mojego autorstwa.
                     </p>
                 </div>
             </div>
