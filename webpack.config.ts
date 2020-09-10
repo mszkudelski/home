@@ -18,11 +18,7 @@ const config: (env, argv) => webpack.Configuration = (
     materials: './src/materials/materials.ts',
   },
   output: {
-    filename: (pathData) => {
-      return pathData.chunk.name === 'index'
-        ? '[name].bundle.js'
-        : '[name].bundle.mjs';
-    },
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist/'),
     publicPath: process.env.HOST_PATH || path.resolve(__dirname, 'dist/'),
   },

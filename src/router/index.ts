@@ -1,4 +1,4 @@
-import { Route } from './route.interface';
+import { RouteConfig, RouteInternal } from './route.interface';
 
 function getCurrentRoute(): string {
   return window.location.pathname;
@@ -10,55 +10,42 @@ function isRouteCurrent(route: string): boolean {
 
 window['__routes'] = {};
 
-function loadPage(routeConfig: Route, container: HTMLElement) {
-  if (!routeConfig.loaded) {
-    // const script = document.createElement('script');
-    // script.onload = function() {
-    //   routeConfig.loaded = true;
-    //   (function check() {
-    //     if (typeof window['__routes'][routeConfig.name] === 'function') {
-    //       window['__routes'][routeConfig.name](container);
-    //     } else {
-    //       // waiting for loading script
-    //       setTimeout(check, 50);
-    //     }
-    //   })();
-    // };
-    // script.src =
-    //   (process.env.HOST_PATH || '') + `${routeConfig.name}.bundle.js`;
-
-    import(`./${routeConfig.name}.bundle.js`).then(console.log);
+function loadPage(routeConfig: RouteInternal, container: HTMLElement) {
+  if (!routeConfig.isLoaded) {
+    routeConfig.loadModule(container);
 
     const styles = document.createElement('link');
     styles.href = (process.env.HOST_PATH || '') + `${routeConfig.name}.css`;
     styles.rel = 'stylesheet';
 
-    // document.body.appendChild(script);
     document.body.appendChild(styles);
   } else {
-    window['__routes'][routeConfig.name](container);
+    routeConfig.renderPage(container);
   }
 }
 
 function changeCurrentRoute(
-  routeConfig: Route,
+  route: RouteInternal,
   container: HTMLElement,
   withPushState = true,
 ) {
-  loadPage(routeConfig, container);
+  loadPage(route, container);
   if (withPushState) {
     window.history.pushState(
       {
-        route: routeConfig.route,
+        route: route.route,
       },
-      routeConfig.title,
-      '/' + routeConfig.route,
+      route.title,
+      '/' + route.route,
     );
   }
-  document.title = 'Szkudelski Marek - ' + routeConfig.title;
+  document.title = 'Szkudelski Marek - ' + route.title;
 }
 
-function registerRouteLinks(routeConfig: Route, container: HTMLElement) {
+function registerRouteLinks(
+  routeConfig: RouteInternal,
+  container: HTMLElement,
+) {
   const navButtons = document.querySelectorAll(`[route="${routeConfig.name}"]`);
   if (navButtons.length) {
     navButtons.forEach((button) =>
@@ -71,13 +58,18 @@ function registerRouteLinks(routeConfig: Route, container: HTMLElement) {
   }
 }
 
-export function registerRoutes(routes: Route[], containerSelector: string) {
+export function registerRoutes(
+  routesConfig: RouteConfig[],
+  containerSelector: string,
+) {
   const container: HTMLElement = document.querySelector(containerSelector);
   if (!container) {
     throw new Error(
       `App container cannot be queried with ${containerSelector} selector!`,
     );
   }
+
+  const routes = routesConfig.map((route) => new RouteInternal(route));
 
   routes.forEach((routeConfig) => {
     registerRouteLinks(routeConfig, container);

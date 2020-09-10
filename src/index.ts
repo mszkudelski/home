@@ -1,6 +1,6 @@
 import '../assets/styles/index.scss';
 import { registerRoutes } from './router';
-import { Route } from './router/route.interface';
+import { RouteConfig } from './router/route.interface';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -8,9 +8,19 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const routes: Route[] = [
-  { name: 'home', route: '', title: 'Strona główna' },
-  { name: 'materials', route: 'materials', title: 'Materiały' },
+const routes: RouteConfig[] = [
+  {
+    name: 'home',
+    route: '',
+    title: 'Strona główna',
+    load: () => import(`./home/home`),
+  },
+  {
+    name: 'materials',
+    route: 'materials',
+    title: 'Materiały',
+    load: () => import(`./materials/materials`),
+  },
 ];
 
 registerRoutes(routes, '#container');

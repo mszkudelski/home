@@ -1,14 +1,15 @@
 import { MaterialsTemplate } from './materials.template';
 import '../../assets/styles/materials.scss';
 
-export default function(container: HTMLElement) {
-  container.innerHTML = MaterialsTemplate;
+export default {
+  template: MaterialsTemplate,
+  callback: function() {
+    const articlesElement = document.querySelector('#articles');
 
-  const articlesElement = document.querySelector('#articles');
-
-  fetch('articles.html')
-    .then((response) => response.json())
-    .then((articlesList) => {
-      articlesElement.innerHTML = articlesList;
-    });
-}
+    fetch('articles.html')
+      .then((response) => response.json())
+      .then((articlesList) => {
+        articlesElement.innerHTML = articlesList;
+      });
+  },
+};
