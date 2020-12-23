@@ -2,6 +2,8 @@ import { IncomingMessage } from 'http';
 import * as cheerio from 'cheerio';
 import { Article } from './article.interface';
 
+const prelections = require('../materials/prelections.json')
+
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
@@ -90,7 +92,7 @@ https
       fs.writeFile(
         filePath,
         JSON.stringify(
-          myArticles
+          [...prelections, ...myArticles,]
             .map((article: Article) => getArticleTemplate(article))
             .join(''),
         ),
