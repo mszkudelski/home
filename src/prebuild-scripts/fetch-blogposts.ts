@@ -15,12 +15,14 @@ const categoryLogos = {
 };
 
 function getArticleTemplate(article: Article) {
+  const typeLabel = article.type === 'video' ? 'Wideo' : 'Artykuł';
   return `
         <article class="article">
           <h2 class="article__title title">
             <a rel="noopener" target="_blank" href="${article.link}">${
     article.title
   }</a>
+            <img class='article__type' src='assets/img/${article.type}.svg' aria-hidden='true' alt='${typeLabel}' title='${typeLabel}'>
           </h2>
           <div class="article__date">${article.date}</div>
           <div class="article__category"><img src="assets/img/${
@@ -92,7 +94,7 @@ https
       fs.writeFile(
         filePath,
         JSON.stringify(
-          [...prelections, ...myArticles,]
+          [...prelections.map(prelection => ({...prelection, type: 'video'})), ...myArticles.map(article => ({...article, type: 'article'})),]
             .map((article: Article) => getArticleTemplate(article))
             .join(''),
         ),

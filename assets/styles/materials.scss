@@ -8,6 +8,22 @@
   flex-direction: column;
 }
 
+.types {
+  display: flex;
+  margin: 10px 0;
+  &__info {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    &:nth-of-type(1) {
+      margin-right: 10px;
+    }
+  }
+  &__icon {
+    width: 18px;
+  }
+}
+
 .article {
   @include card();
   display: flex;
@@ -21,6 +37,8 @@
     width: 100%;
     margin-top: 0;
     padding-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
     a {
       text-decoration: none;
       color: inherit;
@@ -41,6 +59,9 @@
       width: 24px;
       margin-right: 10px;
     }
+  }
+  &__type {
+    width: 20px;
   }
   @media (min-width: 360px) {
     padding: 20px 26px;

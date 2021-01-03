@@ -2,9 +2,9 @@
   {
     "title": "Typescript od strony mniej znanej",
     "author": "Marek",
-    "description": "Typescript przyciąga uwagę coraz większej ilości Javascript deweloperów, dlatego jest coraz większe zapotrzebowanie na wiedzę z tego zakresu - również tą bardziej zaawansowaną. W prezentacji pokażemy elementy tego języka, które mogą być mniej znane przez większość Frontend'owców, ale też poszerzymy ich wiedzę na tematy, które mogą znać. Postaramy się pokazać praktyczne zastosowania wynikające z tej wiedzy poprzez live coding podczas prelekcji. Niektóre z tematów, które zostaną poruszone to: typ never oraz any, budowanie customowych Mapped Types, Generic Constraints, Discriminated Unions.",
+    "description": "W prezentacji pokazuję elementy tego języka, które mogą być mniej znane przez większość Frontend'owców, ale też poszerzam ich wiedzę na tematy, które mogą znać. Pokazuję praktyczne zastosowania wynikające z tej wiedzy poprzez live coding. Niektóre z tematów, które poruszam to: typ never oraz any, budowanie customowych Mapped Types, Generic Constraints, Discriminated Unions.",
     "date": "16 grudnia 2020",
-    "category": "typescript",
+    "category": "TypeScript",
     "link": "https://youtu.be/r9YLt2ZSjfs?t=296"
   }
 ]

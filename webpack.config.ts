@@ -90,6 +90,7 @@ const config: (env, argv) => webpack.Configuration = (
       { from: 'manifest.json' },
       { from: 'assets/img/favicon/*' },
       { from: 'assets/img/*.webp' },
+      { from: 'assets/img/*.svg' },
     ]),
     new WorkboxPlugin.GenerateSW(),
     new MiniCssExtractPlugin({

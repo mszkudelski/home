@@ -5,4 +5,5 @@ export interface Article {
   date: string;
   category: string;
   link: string;
+  type: 'video' | 'article'
 }
