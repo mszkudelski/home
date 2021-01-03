@@ -7,6 +7,12 @@ export interface Job {
 
 export const Jobs: Job[] = [
   {
+    companyName: 'Teb Akademia',
+    startDate: '01.10.2020',
+    position: 'Frontend Developer',
+    description: `Dla grupy Teb Akademia rozwijałem wewnętrzny system dla Wyższych Szkół Bankowych. Praca polegała na analizach wymagań osób, które miały bezpośrednio pracować z systemem oraz na rozwijaniu oprogramowania w sposób zwinny. Projekt miałem okazję tworzyć od początku, więc byłem zaangażowany w wybór rozwiązań technologicznych oraz architektonicznych.`,
+  },
+  {
     companyName: 'Sonalake',
     startDate: '01.04.2019',
     position: 'Frontend Developer',
