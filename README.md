@@ -3,7 +3,7 @@
 ## Description
 This website is in polish language and you can find it here https://szkudelski.dev. 
 Website contains information about my experience, technologies I know and way how to contact me. 
-On subpage (https://szkudelski.dev/materiały) you can find also any materials related with me for example blogposts.
+On subpage (https://szkudelski.dev/materials) you can find also any materials related with me for example blogposts.
 
 ## About project
 
